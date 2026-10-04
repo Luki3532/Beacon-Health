@@ -1,7 +1,7 @@
-# Credential Tracking — Oracle Fusion HCM themed admin console
+# Credential Tracking — PeopleSoft-style admin console
 
 A visual mockup of how the credential tracker would look if it were built
-inside Beacon's Oracle Fusion Cloud HCM suite, rather than as a separate
+inside Beacon's existing PeopleSoft HCM system, rather than as a separate
 website. The point is to show the work landing somewhere staff already log
 into, instead of adding one more system to remember.
 
@@ -15,9 +15,8 @@ constant, because browsers block `fetch()` on `file://` URLs.
 
 | Screen | What it shows |
 | --- | --- |
-| Homepage | Fusion-style tiles with live counts in an Oracle-themed shell |
+| Homepage | Fluid tiles with live counts, the way PeopleSoft 9.2 opens |
 | Credential Summary | KPIs, everything lapsed or expiring, screening flags |
-| ARRT Certification & Registration | Homepage status tile; displays no API data until a feed is available |
 | Manager Worklist | Rolled up by manager, then drill into one manager |
 | Employee Detail | ARRT registration, screening results, verification history |
 | Verification Entry | The form Teresa would fill in after an ARRT lookup |
@@ -31,6 +30,7 @@ paging, and search all work. The notification bell shows lapsed + expiring.
 ```
 python build_data.py
 python build_data.py --as-of 2026-10-03     # pin the date
+python build_data.py --fictional            # swap in pseudonyms
 ```
 
 It reads the same files the real scripts use:
@@ -45,38 +45,17 @@ command-line tools always agree on who is lapsed, due, and current.
 ## Two things worth knowing
 
 **The names are real.** This mockup renders actual employees from the
-credentialing list inside a UI that looks like a production HR system. Treat it
-as private operational data and share accordingly.
+credentialing list inside a UI that looks like a production HR system. That is
+fine for a private walkthrough and a bad idea for a shared screen, a slide
+deck, or anything that leaves your machine. `--fictional` swaps in invented
+names while keeping every count, date, and status identical, so the demo looks
+exactly the same and tells you nothing about a real person. When in doubt, use
+it.
 
 **Nothing saves.** The Verification Entry form validates input and then tells
 you plainly that it did not write anything, along with the real
 `record_verification.py` command that would. A mockup that said "Saved" would
 be teaching people to trust a screen that quietly loses their work.
 
-The `FUSION HCM` tag in the banner is a non-production environment indicator,
-matching how this themed demo is positioned.
-
-## ARRT sanctioned-list web updates
-
-With ARRT permission for automated retrieval, start the local updater from the
-repository root:
-
-```powershell
-python "presentation/prod v2/server.py"
-```
-
-Open `http://127.0.0.1:8765`, then use **Data Sources → ARRT - Disciplinary
-Sanctioned List → Auto update database from web**. The button retrieves ARRT's
-web table, screens employees locally, and regenerates the dashboard. It updates
-the local screening summary and `assets/data.js`, not an Oracle database.
-No employee data is sent to ARRT. Only matching evidence and update metadata
-are stored; the full sanctioned list is not copied to disk.
-
-Incomplete or failed retrievals show an error and retain the previous data.
-The server binds only to `127.0.0.1` and accepts updates only from its own
-console. File previews and VS Code Live Preview do not run the backend; the
-button explains how to open the updater when used there.
-
-This action updates **sanctions screening only**. The separate **ARRT
-Certification & Registration** tile remains **Awaiting API**. A sanctioned-list
-name match is a lead for review, not proof of identity or credential status.
+The `HR92DMO` tag in the banner is PeopleSoft's own non-production database
+indicator — the same signal a real demo instance displays.

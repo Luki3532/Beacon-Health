@@ -46,15 +46,12 @@ NPI_IMPORT = ROOT / "v_7" / "active" / "credentialing_list.csv"
 SAM_FILE = ROOT / "v_8" / "sam_exclusions.json"
 IN_CSV = ROOT / "v_9" / "in_sanctions.csv"
 IN_XLSX = ROOT / "v_9" / "in_sanctions.xlsx"
-ARRT_SANCTIONS_CSV = ROOT / "v_10" / "arrt_sanctions.csv"
-ARRT_SANCTIONS_XLSX = ROOT / "v_10" / "arrt_sanctions.xlsx"
-ARRT_SANCTIONS_SUMMARY = ROOT / "v_10" / "output" / "FINDINGS_SUMMARY.txt"
-ARRT_WEB_SYNC = ROOT / "v_10" / "output" / "web_sync.json"
-ARRT_CHECKS = ROOT / "v_10" / "arrt_sanctions_checks.csv"
 
 OUT = HERE / "assets" / "data.js"
 
 WINDOW_DAYS = 30
+FRESH_DAYS = 7
+AGING_DAYS = 30
 
 LAPSED = "LAPSED"
 DUE = "DUE"
@@ -138,40 +135,6 @@ def load_flagged():
     return flagged
 
 
-# "  E001  Adam Brege   arrt:2" followed by "      > record detail" lines
-ARRT_FLAGGED_LINE = re.compile(r"^\s+(E\d{3})\s+(.+?)\s+arrt:(\d+)\s*$")
-
-
-def load_arrt_flagged():
-    """Employee IDs matching the imported ARRT sanctions list (v_10 summary)."""
-    flagged = {}
-    if not ARRT_SANCTIONS_SUMMARY.exists():
-        return flagged
-
-    current = None
-    for line in ARRT_SANCTIONS_SUMMARY.read_text(encoding="utf-8").splitlines():
-        match = ARRT_FLAGGED_LINE.match(line)
-        if match:
-            employee_id, _, count = match.groups()
-            current = {"count": int(count), "records": []}
-            flagged[employee_id] = current
-        elif current is not None and line.startswith("      > "):
-            current["records"].append(line[8:].strip())
-        else:
-            current = None
-    return flagged
-
-
-def load_arrt_checks():
-    """Latest manual ARRT sanctioned-list check per employee (append-only log)."""
-    latest = {}
-    for row in read_csv(ARRT_CHECKS):
-        employee_id = row.get("employee_id", "")
-        if employee_id:
-            latest[employee_id] = row
-    return latest
-
-
 def load_verifications():
     """Latest ledger entry per employee, and latest successful verification."""
     attempts = {}
@@ -203,48 +166,87 @@ def file_facts(path):
     return True, records, "{:%m/%d/%Y}".format(stamp)
 
 
-def load_sources(ledger_rows):
+def freshness_state(days_old):
+    """Map age in days to a UI-friendly freshness state."""
+    if days_old is None:
+        return "MISSING"
+    if days_old <= FRESH_DAYS:
+        return "FRESH"
+    if days_old <= AGING_DAYS:
+        return "AGING"
+    return "STALE"
+
+
+def freshness_label(state):
+    labels = {
+        "FRESH": "Fresh",
+        "AGING": "Needs refresh soon",
+        "STALE": "Stale",
+        "MISSING": "No data loaded",
+    }
+    return labels.get(state, "Unknown")
+
+
+def source_recency(path, today):
+    """Return last-sync and freshness details for one file source."""
+    if path is None or not path.exists():
+        return {
+            "lastSync": "",
+            "lastSyncIso": "",
+            "stalenessDays": None,
+            "freshnessState": "MISSING",
+            "freshnessLabel": freshness_label("MISSING"),
+        }
+
+    stamp = datetime.fromtimestamp(path.stat().st_mtime)
+    days_old = max(0, (today - stamp.date()).days)
+    state = freshness_state(days_old)
+    return {
+        "lastSync": "{:%m/%d/%Y}".format(stamp),
+        "lastSyncIso": stamp.date().isoformat(),
+        "stalenessDays": days_old,
+        "freshnessState": state,
+        "freshnessLabel": freshness_label(state),
+    }
+
+
+def newest_existing(paths):
+    existing = [p for p in paths if p.exists()]
+    if not existing:
+        return None
+    existing.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+    return existing[0]
+
+
+def load_sources(today, _ledger_rows):
     """
     Data-source connection state for the Integrations page.
 
-    Every entry reflects the real pipeline: the two public exclusion files are
-    genuinely downloaded, the ledger is a real CSV, and ARRT has no connection
-    because there is no public API and the lookup sits behind a CAPTCHA. The
-    page is where a future ARRT feed (import or API) would be wired in.
+    Prod v3 is intentionally "manual-first": no source is auto-marked
+    connected based on files found on disk. Users connect files and run scripts
+    explicitly during demo/workflow execution.
     """
-    leie_ok, leie_rows, leie_when = file_facts(LEIE_FILE)
-    mi_ok, _, mi_when = file_facts(MI_FILE)
 
-    npi_ok = NPI_SUMMARY.exists()
-    npi_cached = len(list(NPI_CACHE.glob("*.json"))) if NPI_CACHE.exists() else 0
-    npi_when = file_facts(NPI_SUMMARY)[2] if npi_ok else ""
-    npi_import_ok, npi_import_rows, npi_import_when = file_facts(NPI_IMPORT)
-    sam_ok, _, sam_when = file_facts(SAM_FILE)
-    in_ok = IN_CSV.exists() or IN_XLSX.exists()
-    in_when = file_facts(IN_CSV if IN_CSV.exists() else IN_XLSX)[2] if in_ok else ""
-    arrt_sanctions_csv_ok, arrt_sanctions_rows, arrt_sanctions_csv_when = file_facts(ARRT_SANCTIONS_CSV)
-    arrt_sanctions_xlsx_ok, _, arrt_sanctions_xlsx_when = file_facts(ARRT_SANCTIONS_XLSX)
-    arrt_sanctions_summary_ok, _, arrt_sanctions_summary_when = file_facts(ARRT_SANCTIONS_SUMMARY)
-    # An empty CSV is not an import.
-    arrt_sanctions_ok = bool(arrt_sanctions_csv_ok and arrt_sanctions_rows) or arrt_sanctions_xlsx_ok
-    arrt_checked = len(load_arrt_checks())
-    arrt_roster_total = len(read_csv(ROSTER))
-    arrt_checks_when = file_facts(ARRT_CHECKS)[2]
-    arrt_sanctions_when = (
-        arrt_sanctions_csv_when
-        or arrt_sanctions_xlsx_when
-        or arrt_sanctions_summary_when
+    leie_exists, leie_records, _ = file_facts(LEIE_FILE)
+    mi_exists, _, _ = file_facts(MI_FILE)
+    npi_import_exists, npi_import_records, _ = file_facts(NPI_IMPORT)
+    npi_summary_exists, _, _ = file_facts(NPI_SUMMARY)
+    npi_cache_records = len(list(NPI_CACHE.glob("*.json"))) if NPI_CACHE.exists() else 0
+    sam_exists, _, _ = file_facts(SAM_FILE)
+    in_source = IN_CSV if IN_CSV.exists() else IN_XLSX
+    in_exists, _, _ = file_facts(in_source)
+    ledger_exists, ledger_records, _ = file_facts(LEDGER)
+
+    arrt_recency = source_recency(LEDGER, today)
+    leie_recency = source_recency(LEIE_FILE, today)
+    mi_recency = source_recency(MI_FILE, today)
+    npi_recency = source_recency(
+        newest_existing([NPI_IMPORT, NPI_SUMMARY, NPI_CACHE]),
+        today,
     )
-    arrt_web_sync = (
-        json.loads(ARRT_WEB_SYNC.read_text(encoding="utf-8"))
-        if ARRT_WEB_SYNC.exists() and arrt_sanctions_summary_ok else None
-    )
-    if arrt_web_sync:
-        arrt_sanctions_ok = True
-        arrt_sanctions_rows = arrt_web_sync["records"]
-        arrt_sanctions_when = datetime.strptime(
-            arrt_web_sync["updatedOn"], "%Y-%m-%d"
-        ).strftime("%m/%d/%Y")
+    sam_recency = source_recency(SAM_FILE, today)
+    in_recency = source_recency(in_source if in_exists else IN_CSV, today)
+    ledger_recency = source_recency(LEDGER, today)
 
     return [
         {
@@ -255,8 +257,12 @@ def load_sources(ledger_rows):
             "statusLabel": "Manual lookup",
             "mode": "Person verifies at arrt.org, records result in ledger",
             "format": "Web form (CAPTCHA-protected)",
-            "records": None,
-            "lastSync": "",
+            "records": ledger_records,
+            "lastSync": arrt_recency["lastSync"],
+            "lastSyncIso": arrt_recency["lastSyncIso"],
+            "stalenessDays": arrt_recency["stalenessDays"],
+            "freshnessState": arrt_recency["freshnessState"],
+            "freshnessLabel": arrt_recency["freshnessLabel"],
             "canApi": True,
             "canImport": True,
             "docsUrl": "https://www.arrt.org",
@@ -272,12 +278,16 @@ def load_sources(ledger_rows):
             "key": "leie",
             "name": "OIG LEIE - Federal Exclusions",
             "kind": "Exclusion screening",
-            "status": "CONNECTED" if leie_ok else "DISCONNECTED",
-            "statusLabel": "Automated download" if leie_ok else "Not downloaded",
+            "status": "DISCONNECTED",
+            "statusLabel": "Manual connect required",
             "mode": "Public bulk file, refreshed monthly by OIG",
             "format": "CSV",
-            "records": leie_rows,
-            "lastSync": leie_when,
+            "records": leie_records if leie_exists else None,
+            "lastSync": leie_recency["lastSync"],
+            "lastSyncIso": leie_recency["lastSyncIso"],
+            "stalenessDays": leie_recency["stalenessDays"],
+            "freshnessState": leie_recency["freshnessState"],
+            "freshnessLabel": leie_recency["freshnessLabel"],
             "canApi": False,
             "canImport": True,
             "docsUrl": "https://oig.hhs.gov/exclusions/leie-database-supplement-downloads/",
@@ -287,45 +297,19 @@ def load_sources(ledger_rows):
                      "confirmed before any action."),
         },
         {
-            "key": "arrt_sanctions",
-            "name": "ARRT - Disciplinary Sanctioned List",
-            "kind": "Disciplinary screening",
-            "status": "CONNECTED" if arrt_sanctions_ok else "MANUAL",
-            "statusLabel": ("Updated from web" if arrt_web_sync else
-                            "Imported file" if arrt_sanctions_ok else
-                            "Manual lookup - {} of {} checked".format(
-                                arrt_checked, arrt_roster_total)),
-            "mode": ("Authorized web update via the local updater; matches are "
-                     "screened locally. Manual checks remain available."),
-            "format": "Web table / CSV / XLSX",
-            "records": (arrt_sanctions_rows if arrt_web_sync or arrt_sanctions_csv_ok
-                        else arrt_checked),
-            "lastSync": arrt_sanctions_when or arrt_checks_when,
-            "canApi": False,
-            "canImport": True,
-            "importLabel": "Record a Check",
-            "docsUrl": "https://www.arrt.org/sanctioned-list",
-            "docsLabel": "arrt.org/sanctioned-list",
-            "note": ("Use the local web updater only with ARRT permission. "
-                     "For manual review, search the ARRT page (last name, "
-                     "first name, or 'last, first') and record the result with "
-                     "v_10/record_arrt_sanctions_check.py. A name match is a lead, "
-                     "not proof: ARRT does not publish SSN or full birth date, so "
-                     "confirm city/state/ARRT ID, or call ARRT at 651.687.0048. "
-                     "Read ARRT Terms of Use before automating anything. ARRT "
-                     "publishes public reprimands for a limited period; private "
-                     "reprimands are not published."),
-        },
-        {
             "key": "mdhhs",
             "name": "Michigan MDHHS - Medicaid Provider Sanctions",
             "kind": "Exclusion screening",
-            "status": "CONNECTED" if mi_ok else "DISCONNECTED",
-            "statusLabel": "Imported file" if mi_ok else "Not imported",
+            "status": "DISCONNECTED",
+            "statusLabel": "Manual connect required",
             "mode": "Public spreadsheet published by the State of Michigan",
             "format": "XLSX",
             "records": None,
-            "lastSync": mi_when,
+            "lastSync": mi_recency["lastSync"],
+            "lastSyncIso": mi_recency["lastSyncIso"],
+            "stalenessDays": mi_recency["stalenessDays"],
+            "freshnessState": mi_recency["freshnessState"],
+            "freshnessLabel": mi_recency["freshnessLabel"],
             "canApi": False,
             "canImport": True,
             "docsUrl": "https://www.michigan.gov/mdhhs/doing-business/providers/providers/",
@@ -338,16 +322,20 @@ def load_sources(ledger_rows):
             "key": "nppes",
             "name": "NPPES - NPI Registry (CMS)",
             "kind": "Identity confirmation",
-            "status": "CONNECTED" if (npi_ok or npi_import_ok) else "AVAILABLE",
-            "statusLabel": ("Roster imported" if npi_import_ok
-                            else ("Automated API" if npi_ok
-                                  else "Ready - not yet run")),
+            "status": "AVAILABLE",
+            "statusLabel": "Ready - run script manually",
             "mode": ("Imported roster CSV (v_7/active), then a keyless public API "
                      "query per employee (v_7)"),
             "format": "CSV / XLSX + REST API",
-            "records": (npi_import_rows if npi_import_ok
-                        else (npi_cached if npi_ok else None)),
-            "lastSync": npi_import_when or npi_when,
+            "records": (
+                npi_import_records if npi_import_exists else
+                (npi_cache_records if (npi_summary_exists or npi_cache_records) else None)
+            ),
+            "lastSync": npi_recency["lastSync"],
+            "lastSyncIso": npi_recency["lastSyncIso"],
+            "stalenessDays": npi_recency["stalenessDays"],
+            "freshnessState": npi_recency["freshnessState"],
+            "freshnessLabel": npi_recency["freshnessLabel"],
             "canApi": True,
             "apiLabel": "Run API Script",
             "canImport": True,
@@ -367,12 +355,16 @@ def load_sources(ledger_rows):
             "key": "sam",
             "name": "SAM.gov - Federal Exclusions (GSA)",
             "kind": "Exclusion screening",
-            "status": "CONNECTED" if sam_ok else "DISCONNECTED",
-            "statusLabel": "API key configured" if sam_ok else "Needs free API key",
+            "status": "DISCONNECTED",
+            "statusLabel": "Manual connect required",
             "mode": "Government-wide debarments via the public Exclusions API (v_8)",
             "format": "REST / JSON",
             "records": None,
-            "lastSync": sam_when,
+            "lastSync": sam_recency["lastSync"],
+            "lastSyncIso": sam_recency["lastSyncIso"],
+            "stalenessDays": sam_recency["stalenessDays"],
+            "freshnessState": sam_recency["freshnessState"],
+            "freshnessLabel": sam_recency["freshnessLabel"],
             "canApi": True,
             "canImport": False,
             "docsUrl": "https://open.gsa.gov/api/exclusions-api/",
@@ -386,12 +378,16 @@ def load_sources(ledger_rows):
             "key": "indiana",
             "name": "Indiana Medicaid - Provider Sanctions",
             "kind": "Exclusion screening",
-            "status": "CONNECTED" if in_ok else "DISCONNECTED",
-            "statusLabel": "File imported" if in_ok else "Awaiting import",
+            "status": "DISCONNECTED",
+            "statusLabel": "Manual connect required",
             "mode": "State list downloaded by hand, then screened (v_9)",
             "format": "CSV / XLSX",
             "records": None,
-            "lastSync": in_when,
+            "lastSync": in_recency["lastSync"],
+            "lastSyncIso": in_recency["lastSyncIso"],
+            "stalenessDays": in_recency["stalenessDays"],
+            "freshnessState": in_recency["freshnessState"],
+            "freshnessLabel": in_recency["freshnessLabel"],
             "canApi": False,
             "canImport": True,
             "docsUrl": ("https://www.in.gov/medicaid/providers/provider-references/"
@@ -412,6 +408,10 @@ def load_sources(ledger_rows):
             "format": "Web portal",
             "records": None,
             "lastSync": "",
+            "lastSyncIso": "",
+            "stalenessDays": None,
+            "freshnessState": "MISSING",
+            "freshnessLabel": freshness_label("MISSING"),
             "canApi": False,
             "canImport": True,
             "docsUrl": "https://mylicense.in.gov/everification/",
@@ -430,8 +430,12 @@ def load_sources(ledger_rows):
             "statusLabel": "Local file",
             "mode": "Append-only; one row per lookup a person performs",
             "format": "CSV",
-            "records": len(ledger_rows),
-            "lastSync": file_facts(LEDGER)[2],
+            "records": len(_ledger_rows),
+            "lastSync": ledger_recency["lastSync"] if ledger_exists else "",
+            "lastSyncIso": ledger_recency["lastSyncIso"],
+            "stalenessDays": ledger_recency["stalenessDays"],
+            "freshnessState": ledger_recency["freshnessState"],
+            "freshnessLabel": ledger_recency["freshnessLabel"],
             "canApi": False,
             "canImport": False,
             "docsUrl": "",
@@ -451,6 +455,56 @@ def main():
         raw = argv[argv.index("--as-of") + 1]
         today = datetime.strptime(raw, "%Y-%m-%d").date()
 
+    # Prod v3 intentionally starts from a clean slate.
+    # Existing local roster/ledger/screening files are ignored until a person
+    # connects/imports/runs sources during the workflow.
+    sources = load_sources(today, read_csv(LEDGER))
+    freshness_counts = {
+        "fresh": sum(1 for s in sources if s.get("freshnessState") == "FRESH"),
+        "aging": sum(1 for s in sources if s.get("freshnessState") == "AGING"),
+        "stale": sum(1 for s in sources if s.get("freshnessState") in ("STALE", "MISSING")),
+    }
+
+    payload = {
+        "asOf": today.isoformat(),
+        "asOfDisplay": "{:%m/%d/%Y}".format(today),
+        "windowDays": WINDOW_DAYS,
+        "fictional": None,
+        "counts": {
+            "total": 0,
+            "lapsed": 0,
+            "due": 0,
+            "current": 0,
+            "never": 0,
+            "flagged": 0,
+            "verified": 0,
+            "ledgerEntries": 0,
+            "freshnessFresh": freshness_counts["fresh"],
+            "freshnessAging": freshness_counts["aging"],
+            "freshnessStale": freshness_counts["stale"],
+        },
+        "employees": [],
+        "managers": [],
+        "sources": sources,
+    }
+
+    OUT.parent.mkdir(parents=True, exist_ok=True)
+    OUT.write_text(
+        "// GENERATED by build_data.py - do not edit by hand.\n"
+        "// Source: cold-start shell for manual import/API workflows.\n"
+        "// Regenerate: python build_data.py\n"
+        "const PS_DATA = {};\n".format(json.dumps(payload, indent=2)),
+        encoding="utf-8",
+    )
+
+    print("Wrote {}".format(OUT))
+    print("  As of:    {:%m/%d/%Y}  (window {} days)".format(today, WINDOW_DAYS))
+    print("  Mode:     cold-start (manual connect/import/run)")
+    print("  Employees:{:>5}".format(payload["counts"]["total"]))
+    print("  Flagged:  {:>5}".format(payload["counts"]["flagged"]))
+    print("  Managers: {:>5}".format(len(payload["managers"])))
+    return
+
     roster = read_csv(ROSTER)
     if not roster:
         raise SystemExit("Roster not found: {}".format(ROSTER))
@@ -460,8 +514,6 @@ def main():
               for row in read_csv(MANAGERS)}
     attempts, verified = load_verifications()
     flagged = load_flagged()
-    arrt_flagged = load_arrt_flagged()
-    arrt_checks = load_arrt_checks()
 
     employees = []
     for person in roster:
@@ -475,16 +527,6 @@ def main():
         attempt = attempts.get(employee_id)
         success = verified.get(employee_id)
         hits = flagged.get(employee_id)
-        arrt_hits = arrt_flagged.get(employee_id)
-        check = arrt_checks.get(employee_id)
-        check_flag = bool(check and check.get("result") in ("match", "unclear"))
-        arrt_records = list(arrt_hits["records"]) if arrt_hits else []
-        if check_flag:
-            arrt_records.append("Manual check ({}): {}{}{}".format(
-                check.get("result"),
-                check.get("sanction") or "see notes",
-                " " + check["sanction_date"] if check.get("sanction_date") else "",
-                " - " + check["notes"] if check.get("notes") else ""))
 
         employees.append({
             "id": employee_id,
@@ -515,12 +557,7 @@ def main():
             "ledgerValidThru": success.get("valid_thru", "") if success else "",
             "screenFederal": hits["federal"] if hits else 0,
             "screenMichigan": hits["michigan"] if hits else 0,
-            "screenArrt": (arrt_hits["count"] if arrt_hits else 0) + (1 if check_flag else 0),
-            "arrtRecords": arrt_records,
-            "arrtCheckResult": check.get("result", "") if check else "",
-            "arrtCheckedOn": check.get("checked_on", "") if check else "",
-            "arrtCheckedBy": check.get("checked_by", "") if check else "",
-            "flagged": bool(hits or arrt_hits or check_flag),
+            "flagged": bool(hits),
         })
 
     employees.sort(key=lambda row: (row["rank"], row["sortName"]))

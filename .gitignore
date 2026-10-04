@@ -7,6 +7,7 @@ v_1/managers.csv
 v_5/verification_log.csv
 v_6/output/FINDINGS_SUMMARY.txt
 v_7/output/FINDINGS_SUMMARY.txt
+v_10/output/FINDINGS_SUMMARY.txt
 v_4/lookup_index.txt
 v_4/mi_sanctions_downloaded.txt
 v_4/results/**
@@ -18,3 +19,4 @@ credentialing list/**
 # Generated UI data bundles that include employee records
 presentation/prod/assets/data.js
 presentation/prod v2/assets/data.js
+v_10/output/web_sync.json

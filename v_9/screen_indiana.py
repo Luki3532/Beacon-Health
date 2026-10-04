@@ -30,7 +30,6 @@ action.
 
 Usage:
     python screen_indiana.py
-    python screen_indiana.py --make-sample   # write a tiny demo file to test the flow
 """
 
 import csv
@@ -113,12 +112,8 @@ def screen():
             "  2. Download the current sanctions / termination list",
             "  3. Save it here as in_sanctions.csv or in_sanctions.xlsx",
             "  4. Run:  python screen_indiana.py",
-            "",
-            "To preview the flow with fake data:",
-            "     python screen_indiana.py --make-sample",
         ]), encoding="utf-8")
         print("No Indiana file imported yet. See", SUMMARY_FILE)
-        print("Tip: 'python screen_indiana.py --make-sample' to test the flow.")
         return
 
     name_col = pick_name_column(rows)
@@ -163,28 +158,7 @@ def screen():
     print("  Output:", SUMMARY_FILE)
 
 
-def make_sample():
-    """Write a tiny demo file so the import->screen flow can be tested."""
-    people = read_csv(EMPLOYEE_DATA)
-    sample_names = []
-    if people:
-        # Include one real roster name so a match is demonstrable, plus noise.
-        p = people[0]
-        sample_names.append("{}, {}".format(p["last_name"], p["first_name"]))
-    sample_names += ["DOE, JOHN", "PUBLIC, JANE Q"]
-    with open(CSV_IN, "w", newline="", encoding="utf-8") as handle:
-        writer = csv.writer(handle)
-        writer.writerow(["Provider Name", "Sanction Type", "Effective Date"])
-        for name in sample_names:
-            writer.writerow([name, "DEMO - not a real sanction", "01/2026"])
-    print("Wrote demo file:", CSV_IN)
-    print("This is DEMO DATA. Now run: python screen_indiana.py")
-
-
 def main():
-    if "--make-sample" in sys.argv[1:]:
-        make_sample()
-        return
     screen()
 
 

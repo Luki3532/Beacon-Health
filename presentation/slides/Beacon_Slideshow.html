@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beacon</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #060f20; overflow: hidden; }
+  .deck { position: fixed; inset: 0; }
+  .slide { position: absolute; inset: 0; opacity: 0; transition: opacity .6s ease; pointer-events: none; }
+  .slide.on { opacity: 1; pointer-events: auto; }
+  .slide svg { width: 100%; height: 100%; display: block; }
+  .dots { position: fixed; left: 0; right: 0; bottom: 14px; display: flex; gap: 10px; justify-content: center; z-index: 5; }
+  .dots button { width: 11px; height: 11px; border-radius: 50%; border: 0; padding: 0; background: rgba(255,255,255,.28); cursor: pointer; transition: all .3s; }
+  .dots button.on { background: #f5a623; transform: scale(1.35); }
+  .nav { position: fixed; top: 0; bottom: 0; width: 12%; border: 0; background: transparent; cursor: pointer; z-index: 4; opacity: 0; transition: opacity .25s; display: flex; align-items: center; justify-content: center; }
+  .nav:hover { opacity: 1; background: linear-gradient(to var(--d), rgba(255,255,255,.08), transparent); }
+  .nav svg { width: 48px; height: 48px; }
+  #prev { left: 0; --d: right; }
+  #next { right: 0; --d: left; }
+  .beam { animation: sweep 6s ease-in-out infinite; transform-origin: 800px 260px; }
+  @keyframes sweep { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+  .bob { animation: bob 5s ease-in-out infinite; }
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  .pulse { animation: pulse 1.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+  .spin { animation: spin 14s linear infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .flow { stroke-dasharray: 18 14; animation: flow 1.2s linear infinite; }
+  @keyframes flow { to { stroke-dashoffset: -32; } }
+  .wave { animation: wave 7s ease-in-out infinite alternate; }
+  @keyframes wave { from { transform: translateX(-40px); } to { transform: translateX(40px); } }
+</style>
+</head>
+<body>
+
+<!-- Shared symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="person" viewBox="0 0 100 100">
+      <circle cx="50" cy="30" r="19" fill="currentColor"/>
+      <path d="M12 98 Q12 58 50 58 Q88 58 88 98 Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="doc" viewBox="0 0 100 130">
+      <path d="M8 4 H66 L92 30 V126 H8 Z" fill="currentColor"/>
+      <path d="M66 4 V30 H92 Z" fill="#000" opacity=".25"/>
+      <rect x="22" y="52" width="56" height="7" rx="3" fill="#fff" opacity=".8"/>
+      <rect x="22" y="72" width="56" height="7" rx="3" fill="#fff" opacity=".8"/>
+      <rect x="22" y="92" width="36" height="7" rx="3" fill="#fff" opacity=".8"/>
+    </symbol>
+    <symbol id="db" viewBox="0 0 100 120">
+      <path d="M8 20 V100 A42 16 0 0 0 92 100 V20 Z" fill="currentColor"/>
+      <ellipse cx="50" cy="20" rx="42" ry="16" fill="#fff" opacity=".35"/>
+      <path d="M8 52 A42 16 0 0 0 92 52" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="4"/>
+      <path d="M8 80 A42 16 0 0 0 92 80" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="4"/>
+    </symbol>
+    <symbol id="check" viewBox="0 0 100 100">
+      <polyline points="16,54 40,78 86,26" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="cross" viewBox="0 0 100 100">
+      <path d="M20 20 L80 80 M80 20 L20 80" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="lh" viewBox="0 0 300 600">
+      <rect x="80" y="560" width="140" height="30" rx="6" fill="#16294d"/>
+      <polygon points="100,562 200,562 180,200 120,200" fill="#f4f7fb"/>
+      <polygon points="115.56,280 184.44,280 188.89,360 111.11,360" fill="#e5484d"/>
+      <polygon points="106.67,440 193.33,440 197.78,520 102.22,520" fill="#e5484d"/>
+      <rect x="98" y="186" width="104" height="16" rx="4" fill="#16294d"/>
+      <rect x="125" y="135" width="50" height="51" fill="#ffd36b"/>
+      <rect x="147" y="135" width="6" height="51" fill="#b8860b" opacity=".5"/>
+      <polygon points="113,135 187,135 150,96" fill="#e5484d"/>
+      <circle cx="150" cy="90" r="7" fill="#16294d"/>
+    </symbol>
+    <marker id="arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#19b3a6"/>
+    </marker>
+    <linearGradient id="night" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#050b1a"/><stop offset="1" stop-color="#12315f"/>
+    </linearGradient>
+    <linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b2f66"/><stop offset=".6" stop-color="#e0735a"/><stop offset="1" stop-color="#ffc66b"/>
+    </linearGradient>
+    <linearGradient id="deep" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1d3a"/><stop offset="1" stop-color="#0f3a4f"/>
+    </linearGradient>
+    <linearGradient id="beamL" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#ffd36b" stop-opacity=".85"/><stop offset="1" stop-color="#ffd36b" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="beamR" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffd36b" stop-opacity=".85"/><stop offset="1" stop-color="#ffd36b" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#ffe9a8" stop-opacity=".95"/><stop offset="1" stop-color="#ffd36b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
+
+<div class="deck" id="deck">
+
+  <!-- 1. Lighthouse / beacon -->
+  <section class="slide on"><svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+    <rect width="1600" height="900" fill="url(#night)"/>
+    <g fill="#fff" opacity=".8">
+      <circle cx="140" cy="90" r="3"/><circle cx="360" cy="190" r="2"/><circle cx="520" cy="60" r="3"/><circle cx="1180" cy="80" r="3"/>
+      <circle cx="1400" cy="170" r="2"/><circle cx="1500" cy="60" r="3"/><circle cx="980" cy="40" r="2"/><circle cx="240" cy="320" r="2"/><circle cx="1320" cy="330" r="2"/>
+    </g>
+    <circle cx="800" cy="260" r="260" fill="url(#glow)" class="pulse"/>
+    <g class="beam">
+      <polygon points="800,260 0,130 0,390" fill="url(#beamL)"/>
+      <polygon points="800,260 1600,130 1600,390" fill="url(#beamR)"/>
+    </g>
+    <path d="M520 800 Q650 690 800 700 Q950 690 1080 800 Z" fill="#1a2a44"/>
+    <use href="#lh" x="650" y="100" width="300" height="600"/>
+    <g class="wave"><path d="M-100 800 Q0 770 100 800 T300 800 T500 800 T700 800 T900 800 T1100 800 T1300 800 T1500 800 T1700 800 V900 H-100Z" fill="#0d2a52"/></g>
+    <g class="wave" style="animation-delay:-3s"><path d="M-100 835 Q0 810 100 835 T300 835 T500 835 T700 835 T900 835 T1100 835 T1300 835 T1500 835 T1700 835 V900 H-100Z" fill="#0a1f3d"/></g>
+  </svg></section>
+
+  <!-- 2. Problem: scattered paperwork -->
+  <section class="slide"><svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+    <rect width="1600" height="900" fill="url(#deep)"/>
+    <g class="bob">
+      <use href="#doc" x="160" y="180" width="170" height="221" style="color:#4a6fa5" transform="rotate(-14 245 290)"/>
+      <use href="#doc" x="420" y="520" width="150" height="195" style="color:#7d8fb3" transform="rotate(10 495 617)"/>
+      <use href="#doc" x="1180" y="160" width="180" height="234" style="color:#4a6fa5" transform="rotate(16 1270 277)"/>
+      <use href="#doc" x="1280" y="540" width="160" height="208" style="color:#7d8fb3" transform="rotate(-9 1360 644)"/>
+      <use href="#doc" x="700" y="660" width="120" height="156" style="color:#5b7ab0" transform="rotate(7 760 738)"/>
+      <use href="#doc" x="860" y="90" width="120" height="156" style="color:#7d8fb3" transform="rotate(-6 920 168)"/>
+    </g>
+    <polygon points="800,210 1010,570 590,570" fill="#f5a623" stroke="#ffd36b" stroke-width="12" stroke-linejoin="round" class="pulse"/>
+    <rect x="780" y="310" width="40" height="150" rx="18" fill="#0b1d3a"/>
+    <circle cx="800" cy="510" r="22" fill="#0b1d3a"/>
+    <g transform="translate(1030 640)" fill="none" stroke="#e5484d" stroke-width="14" stroke-linecap="round">
+      <circle cx="0" cy="0" r="70"/><path d="M0 -40 V0 L28 20"/>
+    </g>
+  </svg></section>
+
+  <!-- 3. Many sources, one view -->
+  <section class="slide"><svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+    <rect width="1600" height="900" fill="url(#deep)"/>
+    <g stroke="#19b3a6" stroke-width="6" fill="none" class="flow" opacity=".9">
+      <path d="M330 150 C 600 150 600 450 860 450"/>
+      <path d="M330 300 C 600 300 600 450 860 450"/>
+      <path d="M330 450 H860"/>
+      <path d="M330 600 C 600 600 600 450 860 450"/>
+      <path d="M330 750 C 600 750 600 450 860 450"/>
+    </g>
+    <g>
+      <circle cx="260" cy="150" r="70" fill="#4a6fa5"/><use href="#db" x="222" y="110" width="76" height="80" style="color:#fff"/>
+      <circle cx="260" cy="300" r="70" fill="#e5484d"/><use href="#person" x="220" y="262" width="80" height="80" style="color:#fff"/>
+      <circle cx="260" cy="450" r="70" fill="#f5a623"/><use href="#doc" x="228" y="410" width="64" height="80" style="color:#fff"/>
+      <circle cx="260" cy="600" r="70" fill="#2fbf71"/><use href="#check" x="222" y="562" width="76" height="76" style="color:#fff"/>
+      <circle cx="260" cy="750" r="70" fill="#8a63d2"/><use href="#db" x="222" y="710" width="76" height="80" style="color:#fff"/>
+    </g>
+    <rect x="860" y="190" width="620" height="520" rx="28" fill="#0a1830" stroke="#19b3a6" stroke-width="8"/>
+    <g>
+      <rect x="900" y="230" width="170" height="110" rx="14" fill="#2fbf71"/>
+      <rect x="1090" y="230" width="170" height="110" rx="14" fill="#f5a623"/>
+      <rect x="1280" y="230" width="160" height="110" rx="14" fill="#e5484d"/>
+      <rect x="900" y="370" width="540" height="40" rx="10" fill="#1d3a66"/>
+      <rect x="900" y="430" width="540" height="40" rx="10" fill="#16294d"/>
+      <rect x="900" y="490" width="540" height="40" rx="10" fill="#1d3a66"/>
+      <rect x="900" y="550" width="540" height="40" rx="10" fill="#16294d"/>
+      <rect x="900" y="610" width="540" height="40" rx="10" fill="#1d3a66"/>
+      <circle cx="925" cy="450" r="9" fill="#2fbf71"/><circle cx="925" cy="510" r="9" fill="#f5a623"/><circle cx="925" cy="570" r="9" fill="#e5484d"/><circle cx="925" cy="630" r="9" fill="#2fbf71"/><circle cx="925" cy="390" r="9" fill="#2fbf71"/>
+    </g>
+  </svg></section>
+
+  <!-- 4. Pipeline -->
+  <section class="slide"><svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+    <rect width="1600" height="900" fill="url(#deep)"/>
+    <use href="#db" x="150" y="300" width="260" height="312" style="color:#4a6fa5"/>
+    <g class="spin"><g transform="translate(800 450)">
+      <circle r="130" fill="none" stroke="#19b3a6" stroke-width="44" stroke-dasharray="40.8 40.8"/>
+      <circle r="105" fill="#19b3a6"/><circle r="45" fill="#0b1d3a"/>
+    </g></g>
+    <rect x="1170" y="290" width="330" height="240" rx="22" fill="#0a1830" stroke="#f5a623" stroke-width="10"/>
+    <rect x="1290" y="530" width="90" height="60" fill="#f5a623"/><rect x="1240" y="590" width="190" height="20" rx="8" fill="#f5a623"/>
+    <rect x="1205" y="325" width="70" height="60" rx="8" fill="#2fbf71"/><rect x="1290" y="325" width="70" height="60" rx="8" fill="#f5a623"/><rect x="1375" y="325" width="90" height="60" rx="8" fill="#e5484d"/>
+    <rect x="1205" y="405" width="260" height="28" rx="8" fill="#1d3a66"/><rect x="1205" y="445" width="260" height="28" rx="8" fill="#16294d"/>
+    <g stroke="#19b3a6" stroke-width="12" fill="none" stroke-linecap="round" class="flow">
+      <path d="M440 456 H620" marker-end="url(#arr)"/>
+      <path d="M980 450 H1140" marker-end="url(#arr)"/>
+    </g>
+  </svg></section>
+
+  <!-- 5. Exclusion screening -->
+  <section class="slide"><svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+    <rect width="1600" height="900" fill="url(#deep)"/>
+    <g style="color:#5b7ab0">
+      <use href="#person" x="260" y="160" width="150" height="150"/><use href="#person" x="480" y="160" width="150" height="150"/>
+      <use href="#person" x="700" y="160" width="150" height="150"/><use href="#person" x="920" y="160" width="150" height="150"/>
+      <use href="#person" x="1140" y="160" width="150" height="150"/>
+      <use href="#person" x="260" y="380" width="150" height="150"/><use href="#person" x="480" y="380" width="150" height="150"/>
+      <use href="#person" x="1140" y="380" width="150" height="150"/>
+      <use href="#person" x="260" y="600" width="150" height="150"/><use href="#person" x="480" y="600" width="150" height="150"/>
+      <use href="#person" x="700" y="600" width="150" height="150"/><use href="#person" x="920" y="600" width="150" height="150"/>
+      <use href="#person" x="1140" y="600" width="150" height="150"/>
+    </g>
+    <circle cx="995" cy="455" r="105" fill="#e5484d" opacity=".25" class="pulse"/>
+    <use href="#person" x="920" y="380" width="150" height="150" style="color:#e5484d"/>
+    <use href="#person" x="700" y="380" width="150" height="150" style="color:#5b7ab0"/>
+    <g class="bob">
+      <circle cx="800" cy="440" r="140" fill="rgba(255,255,255,.07)" stroke="#f5a623" stroke-width="22"/>
+      <line x1="900" y1="540" x2="1040" y2="680" stroke="#f5a623" stroke-width="30" stroke-linecap="round"/>
+    </g>
+  </svg></section>
+
+  <!-- 6. Compliance shield -->
+  <section class="slide"><svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+    <rect width="1600" height="900" fill="url(#deep)"/>
+    <circle cx="800" cy="450" r="380" fill="url(#glow)" opacity=".35" class="pulse"/>
+    <path d="M800 100 L1130 220 V500 Q1130 730 800 830 Q470 730 470 500 V220 Z" fill="#19b3a6" stroke="#8ff0e6" stroke-width="14" stroke-linejoin="round"/>
+    <path d="M800 160 L1070 260 V500 Q1070 690 800 772 Q530 690 530 500 V260 Z" fill="#0f3a4f"/>
+    <use href="#check" x="650" y="330" width="300" height="300" style="color:#2fbf71"/>
+  </svg></section>
+
+  <!-- 7. Expiry: calendar, clock, traffic light -->
+  <section class="slide"><svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+    <rect width="1600" height="900" fill="url(#deep)"/>
+    <g transform="translate(160 170)">
+      <rect width="480" height="520" rx="30" fill="#f4f7fb"/>
+      <path d="M0 30 Q0 0 30 0 H450 Q480 0 480 30 V120 H0Z" fill="#e5484d"/>
+      <rect x="110" y="-30" width="22" height="70" rx="11" fill="#16294d"/><rect x="348" y="-30" width="22" height="70" rx="11" fill="#16294d"/>
+      <g fill="#c9d3e3">
+        <rect x="40" y="160" width="70" height="60" rx="10"/><rect x="130" y="160" width="70" height="60" rx="10"/><rect x="220" y="160" width="70" height="60" rx="10"/><rect x="310" y="160" width="70" height="60" rx="10"/><rect x="400" y="160" width="40" height="60" rx="10"/>
+        <rect x="40" y="250" width="70" height="60" rx="10"/><rect x="130" y="250" width="70" height="60" rx="10"/><rect x="310" y="250" width="70" height="60" rx="10"/><rect x="400" y="250" width="40" height="60" rx="10"/>
+        <rect x="40" y="340" width="70" height="60" rx="10"/><rect x="130" y="340" width="70" height="60" rx="10"/><rect x="220" y="340" width="70" height="60" rx="10"/><rect x="400" y="340" width="40" height="60" rx="10"/>
+        <rect x="40" y="430" width="70" height="60" rx="10"/><rect x="220" y="430" width="70" height="60" rx="10"/>
+      </g>
+      <rect x="220" y="250" width="70" height="60" rx="10" fill="#f5a623" class="pulse"/>
+      <rect x="310" y="340" width="70" height="60" rx="10" fill="#e5484d"/>
+      <rect x="130" y="430" width="70" height="60" rx="10" fill="#2fbf71"/>
+      <rect x="310" y="430" width="70" height="60" rx="10" fill="#2fbf71"/>
+    </g>
+    <g transform="translate(870 430)">
+      <circle r="190" fill="#f4f7fb" stroke="#16294d" stroke-width="18"/>
+      <g stroke="#16294d" stroke-width="10" stroke-linecap="round"><path d="M0 -165 V-140"/><path d="M0 165 V140"/><path d="M-165 0 H-140"/><path d="M165 0 H140"/></g>
+      <path d="M0 0 V-110" stroke="#16294d" stroke-width="16" stroke-linecap="round"/>
+      <path d="M0 0 L80 40" stroke="#e5484d" stroke-width="16" stroke-linecap="round"/>
+      <circle r="16" fill="#16294d"/>
+    </g>
+    <g transform="translate(1260 150)">
+      <rect width="230" height="600" rx="50" fill="#0a1830" stroke="#4a6fa5" stroke-width="10"/>
+      <circle cx="115" cy="130" r="64" fill="#e5484d" class="pulse"/>
+      <circle cx="115" cy="300" r="64" fill="#f5a623"/>
+      <circle cx="115" cy="470" r="64" fill="#2fbf71"/>
+    </g>
+  </svg></section>
+
+  <!-- 8. Continuous loop -->
+  <section class="slide"><svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+    <rect width="1600" height="900" fill="url(#deep)"/>
+    <g fill="none" stroke="#19b3a6" stroke-width="14" stroke-linecap="round" class="flow">
+      <path d="M800 190 A260 260 0 0 1 1060 450" marker-end="url(#arr)"/>
+      <path d="M1060 450 A260 260 0 0 1 800 710" marker-end="url(#arr)"/>
+      <path d="M800 710 A260 260 0 0 1 540 450" marker-end="url(#arr)"/>
+      <path d="M540 450 A260 260 0 0 1 800 190" marker-end="url(#arr)"/>
+    </g>
+    <g>
+      <circle cx="800" cy="190" r="100" fill="#4a6fa5"/><use href="#person" x="750" y="140" width="100" height="100" style="color:#fff"/>
+      <circle cx="1060" cy="450" r="100" fill="#f5a623"/><use href="#doc" x="1022" y="405" width="76" height="98" style="color:#fff"/>
+      <circle cx="800" cy="710" r="100" fill="#8a63d2"/>
+      <circle cx="790" cy="700" r="38" fill="none" stroke="#fff" stroke-width="12"/><line x1="818" y1="728" x2="852" y2="762" stroke="#fff" stroke-width="14" stroke-linecap="round"/>
+      <circle cx="540" cy="450" r="100" fill="#2fbf71"/><use href="#check" x="490" y="400" width="100" height="100" style="color:#fff"/>
+    </g>
+    <use href="#lh" x="740" y="320" width="120" height="240" class="pulse"/>
+  </svg></section>
+
+  <!-- 9. Manual verification checklist -->
+  <section class="slide"><svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+    <rect width="1600" height="900" fill="url(#deep)"/>
+    <g transform="translate(450 60)">
+      <rect width="700" height="800" rx="40" fill="#c58a4b"/>
+      <rect x="40" y="70" width="620" height="690" rx="20" fill="#f4f7fb"/>
+      <rect x="240" y="20" width="220" height="90" rx="30" fill="#16294d"/><circle cx="350" cy="52" r="14" fill="#f4f7fb"/>
+      <g>
+        <rect x="90" y="160" width="90" height="90" rx="18" fill="#2fbf71"/><use href="#check" x="98" y="168" width="74" height="74" style="color:#fff"/>
+        <rect x="220" y="190" width="380" height="30" rx="15" fill="#c9d3e3"/>
+        <rect x="90" y="290" width="90" height="90" rx="18" fill="#2fbf71"/><use href="#check" x="98" y="298" width="74" height="74" style="color:#fff"/>
+        <rect x="220" y="320" width="320" height="30" rx="15" fill="#c9d3e3"/>
+        <rect x="90" y="420" width="90" height="90" rx="18" fill="#e5484d"/><use href="#cross" x="98" y="428" width="74" height="74" style="color:#fff"/>
+        <rect x="220" y="450" width="360" height="30" rx="15" fill="#c9d3e3"/>
+        <rect x="90" y="550" width="90" height="90" rx="18" fill="#2fbf71"/><use href="#check" x="98" y="558" width="74" height="74" style="color:#fff"/>
+        <rect x="220" y="580" width="300" height="30" rx="15" fill="#c9d3e3"/>
+        <rect x="90" y="680" width="90" height="60" rx="18" fill="#f5a623" class="pulse"/>
+        <rect x="220" y="695" width="260" height="30" rx="15" fill="#c9d3e3"/>
+      </g>
+    </g>
+  </svg></section>
+
+  <!-- 10. Speed -->
+  <section class="slide"><svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+    <rect width="1600" height="900" fill="url(#deep)"/>
+    <g transform="translate(800 560)">
+      <path d="M-420 0 A420 420 0 0 1 -210 -364" fill="none" stroke="#2fbf71" stroke-width="60"/>
+      <path d="M-210 -364 A420 420 0 0 1 210 -364" fill="none" stroke="#f5a623" stroke-width="60"/>
+      <path d="M210 -364 A420 420 0 0 1 420 0" fill="none" stroke="#e5484d" stroke-width="60"/>
+      <g style="transform-origin:0 0; transform:rotate(55deg)" >
+        <path d="M-14 0 L0 -350 L14 0 Z" fill="#f4f7fb"/>
+      </g>
+      <circle r="36" fill="#f4f7fb"/><circle r="16" fill="#0b1d3a"/>
+    </g>
+    <polygon points="800,640 700,800 780,800 740,880 900,720 820,720 880,640" fill="#ffd36b" class="pulse"/>
+  </svg></section>
+
+  <!-- 11. Sunrise / closing -->
+  <section class="slide"><svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+    <rect width="1600" height="900" fill="url(#dusk)"/>
+    <g stroke="#ffe9a8" stroke-width="12" stroke-linecap="round" opacity=".8" class="spin" style="transform-origin:1050px 640px">
+      <path d="M1050 390 V320"/><path d="M1050 890 V960"/><path d="M800 640 H730"/><path d="M1300 640 H1370"/>
+      <path d="M876 466 L826 416"/><path d="M1224 466 L1274 416"/><path d="M876 814 L826 864"/><path d="M1224 814 L1274 864"/>
+    </g>
+    <circle cx="1050" cy="640" r="210" fill="#ffd36b"/>
+    <circle cx="1050" cy="640" r="270" fill="url(#glow)" class="pulse"/>
+    <path d="M300 800 Q420 650 560 660 Q700 650 800 800 Z" fill="#1a2a44"/>
+    <use href="#lh" x="410" y="140" width="300" height="600"/>
+    <polygon points="560,300 0,200 0,400" fill="url(#beamL)" opacity=".7"/>
+    <path d="M0 800 H1600 V900 H0Z" fill="#12315f"/>
+    <g class="wave"><path d="M-100 810 Q0 785 100 810 T300 810 T500 810 T700 810 T900 810 T1100 810 T1300 810 T1500 810 T1700 810 V900 H-100Z" fill="#0d2a52"/></g>
+  </svg></section>
+
+</div>
+
+<button class="nav" id="prev" aria-label="previous"><svg viewBox="0 0 48 48"><path d="M30 8 L14 24 L30 40" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<button class="nav" id="next" aria-label="next"><svg viewBox="0 0 48 48"><path d="M18 8 L34 24 L18 40" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<div class="dots" id="dots"></div>
+
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var dots = document.getElementById('dots');
+  var i = 0, timer = null;
+  slides.forEach(function (_, n) {
+    var b = document.createElement('button');
+    b.setAttribute('aria-label', 'slide ' + (n + 1));
+    b.onclick = function () { go(n); };
+    dots.appendChild(b);
+  });
+  function go(n) {
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+    Array.prototype.forEach.call(dots.children, function (d, k) { d.classList.toggle('on', k === i); });
+  }
+  function auto(on) {
+    clearInterval(timer);
+    if (on) timer = setInterval(function () { go(i + 1); }, 5000);
+  }
+  document.getElementById('prev').onclick = function () { go(i - 1); };
+  document.getElementById('next').onclick = function () { go(i + 1); };
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') go(i + 1);
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') go(i - 1);
+    else if (e.key === 'Home') go(0);
+    else if (e.key === 'End') go(slides.length - 1);
+    else if (e.key === 'f' || e.key === 'F') {
+      if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen();
+    } else if (e.key === 'p' || e.key === 'P') auto(!timer || timer === null ? true : false);
+  });
+  var x0 = null;
+  document.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; });
+  document.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) go(i + (dx < 0 ? 1 : -1));
+    x0 = null;
+  });
+  go(0);
+})();
+</script>
+</body>
+</html>
