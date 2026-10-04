@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Beacon: secure Gmail email setup",
+			"type": "process",
+			"command": "powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}\\presentation\\prod v2\\start_with_email.ps1",
+				"-PythonExecutable",
+				"C:\\Users\\Lucas\\AppData\\Roaming\\uv\\python\\cpython-3.14.8-windows-x86_64-none\\python.exe"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}

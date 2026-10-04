@@ -1,0 +1,21 @@
+{
+  "manager": {
+    "key": "Carpenter, Lucas",
+    "name": "Lucas Carpenter",
+    "email": "Lucasecarpenter@gmail.com"
+  },
+  "employees": [
+    {
+      "id": "DEMO-JIMMY",
+      "first": "Jimmy",
+      "last": "John",
+      "expiresOn": "2026-10-29"
+    },
+    {
+      "id": "DEMO-WENDY",
+      "first": "Wendy",
+      "last": "King",
+      "expiresOn": "2026-12-03"
+    }
+  ]
+}

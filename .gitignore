@@ -20,3 +20,4 @@ credentialing list/**
 presentation/prod/assets/data.js
 presentation/prod v2/assets/data.js
 v_10/output/web_sync.json
+presentation/prod v2/notification_log.jsonl

@@ -184,7 +184,7 @@
 
   function empLink(emp) {
     return '<a data-go="employee" data-id="' + esc(emp.id) + '">'
-      + esc(emp.sortName) + "</a>";
+      + esc(emp.sortName) + (emp.isDemo ? " [DEMO]" : "") + "</a>";
   }
 
   var COL_ID = {
@@ -220,6 +220,7 @@
   var COL_ACT = {
     key: "act", label: "Verify", cls: "nowrap",
     render: function (r) {
+      if (r.isDemo) return '<span class="ps-muted">Demo scenario only</span>';
       return '<a data-go="verify" data-id="' + esc(r.id) + '">Record</a>';
     }
   };
@@ -256,17 +257,11 @@
   function viewHome() {
     var c = D.counts;
 
-    var nppesSource = null;
-    (D.sources || []).forEach(function (s) {
-      if (s.key === "nppes") nppesSource = s;
-    });
-    var nppesRecords = (nppesSource && nppesSource.records != null)
-      ? nppesSource.records : 0;
-
     var rows = '<div class="ps-tile-rows">'
       + '<div class="ps-tile-row"><span>Lapsed</span><b>' + c.lapsed + "</b></div>"
       + '<div class="ps-tile-row"><span>Expiring</span><b>' + c.due + "</b></div>"
       + '<div class="ps-tile-row"><span>Current</span><b>' + c.current + "</b></div>"
+      + '<div class="ps-tile-row"><span>No credential data</span><b>' + c.never + "</b></div>"
       + "</div>";
 
     var tiles = [
@@ -284,7 +279,7 @@
       tile({
         go: "search", label: "Verify Credentials", sub: "Oracle Fusion HCM workflow",
         sev: "sev-blue",
-        body: metric(c.total, "registrations on file"),
+        body: metric(c.total, "employees in roster"),
         foot: "Manual verification"
       }),
       tile({
@@ -305,8 +300,8 @@
         go: "source", key: "nppes",
         label: "NPPES Identity", sub: "NPI Registry \u00B7 CMS",
         sev: "sev-blue",
-        body: metric(nppesRecords, "identities confirmed"),
-        foot: "Keyless public API"
+        body: metric(c.nppesLookups || 0, "cached identity lookups"),
+        foot: (c.nppesWithCandidates || 0) + " with NPI candidates \u00B7 not credential verification"
       }),
       tile({
         go: "audit", label: "Audit Log", sub: "Verification history",
@@ -349,6 +344,9 @@
 
   function viewSummary() {
     var c = D.counts;
+    var arrtScreening = (D.sources || []).find(function (source) {
+      return source.key === "arrt_sanctions";
+    });
     setCrumbs([
       { label: "Main Menu" },
       { label: "Human Capital Management" },
@@ -362,6 +360,7 @@
       + kpi(c.lapsed, "Lapsed", "sev-red")
       + kpi(c.due, "Expiring \u2264 " + D.windowDays + " Days", "sev-amber")
       + kpi(c.current, "Current", "sev-green")
+      + kpi(c.never, "No Credential Data", "sev-amber")
       + kpi(c.flagged, "Screening Flags", "sev-red")
       + "</div>";
 
@@ -374,11 +373,28 @@
     var html = '<div class="ps-page">'
       + '<div class="ps-page-head"><div>'
       + '<h1 class="ps-page-title">Credential Summary</h1>'
-      + '<p class="ps-page-sub">Radiology \u00B7 Kalamazoo \u00B7 Primary source verification status</p>'
+      + '<p class="ps-page-sub">Radiology \u00B7 Kalamazoo \u00B7 Status calculated from available credential records</p>'
       + '</div><div class="ps-page-head-right">'
       + "As of " + esc(D.asOfDisplay) + "<br>Alert window: " + D.windowDays + " days"
       + "</div></div>"
-      + kpis;
+      + kpis
+      + '<div class="ps-note is-warn"><p>Synthetic credential data is excluded. '
+      + "Current, expiring, and lapsed describe recorded expiration dates, not "
+      + "completed ARRT verification. See each profile for source and lookup evidence.</p>"
+      + "<p>" + esc(c.demo || 0) + " explicitly labeled demo compliance records are included "
+      + "for the Lucas notification scenario, not as ARRT evidence.</p></div>";
+
+    html += '<div class="ps-group"><div class="ps-group-head">Identity &amp; Sanctions Evidence'
+      + '</div><div class="ps-group-body"><p>NPPES: '
+      + esc(c.nppesLookups || 0) + " cached lookups; "
+      + esc(c.nppesWithCandidates || 0) + " employee records with candidates. "
+      + "An NPI candidate is not a confirmed registration.</p><p>ARRT sanctions: "
+      + esc(arrtScreening ? arrtScreening.statusLabel : "No screening source")
+      + "; source records: " + esc(arrtScreening && arrtScreening.records != null
+        ? arrtScreening.records : "\u2014")
+      + "; last sync: " + esc(arrtScreening && arrtScreening.lastSync
+        ? arrtScreening.lastSync : "\u2014") + ". No name match "
+      + "does not prove a current credential.</p></div></div>";
 
     if (c.lapsed) {
       html += '<div class="ps-note is-error"><p><b>' + c.lapsed
@@ -431,9 +447,11 @@
     html += actionBar([
       { label: "Refresh Page" },
       { label: "Return to Home", act: "home" },
+      { label: "Notify all immediately", act: "notify-all", save: true },
       { notify: true }
     ]);
 
+    html += '<div id="mailMsg" aria-live="polite"></div>';
     return html + "</div>";
   }
 
@@ -665,7 +683,7 @@
 
     var html = '<div class="ps-page">'
       + '<div class="ps-page-head"><div>'
-      + '<h1 class="ps-page-title">' + esc(emp.name) + "</h1>"
+      + '<h1 class="ps-page-title">' + esc(emp.name) + (emp.isDemo ? " [DEMO]" : "") + "</h1>"
       + '<p class="ps-page-sub">Empl ID ' + esc(emp.id)
       + " \u00B7 Reports to " + esc(emp.managerName) + "</p>"
       + '</div><div class="ps-page-head-right">'
@@ -705,15 +723,35 @@
   }
 
   function tabArrt(emp) {
+    var synthetic = emp.dataSource === "SYNTHETIC";
+    var sourceLabel = emp.isDemo ? "Demo compliance scenario - not ARRT data"
+      : synthetic ? "Synthetic data withheld"
+      : (emp.dataSource ? "Imported record (" + emp.dataSource + ")" : "No credential source recorded");
     var html = '<div class="ps-group">'
       + '<div class="ps-group-head">Registration'
-      + '<span class="ps-group-note">Source: ARRT primary source verification</span>'
+      + '<span class="ps-group-note">Source: ' + esc(sourceLabel) + '</span>'
       + "</div><div class=\"ps-group-body\"><div class=\"ps-field-grid\">"
       + field("Credentials", emp.credentials)
       + field("Valid Through", emp.validThru)
       + field("Status", statusLabel(emp.status))
       + field("Days Remaining", daysText(emp))
+      + field("Verification", emp.lastOutcome === "verified" && emp.lastVerifiedBy
+          && emp.lastVerifiedOn ? "Recorded manual lookup - see Verification History"
+            : "No completed verification on record", true)
       + "</div></div></div>";
+
+    html += '<div class="ps-note is-warn"><p>'
+      + (synthetic
+          ? "The local source contained fabricated demo credentials, dates, CE, CQR, "
+            + "and address fields. Those values are withheld and do not contribute "
+            + "to current, expiring, or lapsed counts."
+          : emp.isDemo ? "This is a fictional compliance-expiration scenario for notification testing, "
+            + "not an ARRT certification or registration."
+          : "These fields come from an imported local record or recorded human lookup, not a live ARRT API. "
+            + "The source label alone is not verification evidence.")
+      + "</p><p>ARRT Certification &amp; Registration is Awaiting API. "
+      + "A named manual lookup and its source/date must be recorded to document "
+      + "verification. Sanctions screening does not verify registration.</p></div>";
 
     html += '<div class="ps-cols-2">';
 
@@ -736,14 +774,18 @@
 
     html += "</div>";
 
-    if (emp.status === "LAPSED") {
+    if (emp.isDemo) {
+      html += '<div class="ps-note"><p>Demo compliance expiration: '
+        + esc(emp.validThru) + ". Days remaining: " + esc(daysText(emp))
+        + ". This scenario is used for manager warning emails only.</p></div>";
+    } else if (emp.status === "LAPSED") {
       html += '<div class="ps-note is-error"><p><b>This registration lapsed '
         + esc(daysText(emp)) + ".</b> Confirm renewal with the technologist"
-        + " before the next scheduled shift.</p></div>";
+        + ". This is calculated from the imported date; confirm with ARRT.</p></div>";
     } else if (emp.status === "DUE") {
       html += '<div class="ps-note is-warn"><p><b>This registration expires in '
-        + esc(daysText(emp)) + ".</b> The manager has been notified through the"
-        + " scheduled alert job.</p></div>";
+        + esc(daysText(emp)) + ".</b> This is calculated from the imported date."
+        + " Confirm with ARRT and arrange manager follow-up.</p></div>";
     }
 
     return html;
@@ -761,6 +803,10 @@
     html += '<div class="ps-grid-wrap"><table class="ps-grid"><thead><tr>'
       + "<th>Source</th><th>Scope</th><th>Mode</th><th>Result</th>"
       + "</tr></thead><tbody>";
+
+    html += srcRow("NPPES", "Identity candidates (not credential status)", "Cached API result",
+      emp.nppesCandidates == null ? "No lookup available"
+        : emp.nppesCandidates + " candidate(s) - confirm identity before relying on a match", false);
 
     html += srcRow("OIG LEIE", "Federal exclusions", "Automated",
       emp.screenFederal
@@ -783,7 +829,9 @@
       emp.screenArrt > 0);
 
     html += srcRow("ARRT", "Registration status", "Manual",
-      "Verified by person \u2014 see Verification History", false);
+      emp.lastOutcome === "verified" && emp.lastVerifiedBy && emp.lastVerifiedOn
+        ? "Recorded manual lookup \u2014 see Verification History"
+        : "No completed verification on record \u2014 Awaiting API", false);
 
     html += "</tbody></table></div></div></div>";
 
@@ -873,6 +921,13 @@
       + " performed by a person.</b> Look the registration up at arrt.org, then"
       + " record what you saw below. The entry is written to the append-only"
       + " ledger with your name against it.</p></div>";
+    html += '<div class="ps-note"><p><b>Human verification checklist:</b> '
+      + "Open the ARRT directory, complete its human access check yourself, "
+      + "confirm you found the correct person, then record the exact credentials, "
+      + "valid-through date, lookup date, verifier, and source. No automated lookup "
+      + "or CAPTCHA bypass is performed.</p>"
+      + '<p><a class="ps-btn" href="https://www.arrt.org/pages/verify-credentials" '
+      + 'target="_blank" rel="noopener noreferrer">Open ARRT verification directory</a></p></div>';
 
     html += '<div class="ps-group">'
       + '<div class="ps-group-head">Verification Detail</div>'
@@ -1157,7 +1212,7 @@
       + '<p class="ps-page-sub">' + esc(source.kind) + "</p>"
       + '</div><div class="ps-page-head-right">'
       + sourceStatusChip(source.status) + "</div></div>"
-      + sourceCard(source);
+      + (source.key === "arrt" ? "" : sourceCard(source));
 
     // NPPES is person-by-person identity confirmation. Show the full roster so
     // users can see every identity in scope, not only the aggregate count.
@@ -1166,11 +1221,29 @@
         id: "nppes-ident",
         title: "NPPES Identity Roster",
         sort: "sortName",
-        rows: D.employees,
-        columns: [COL_ID, COL_NAME, COL_MGR],
+        rows: D.employees.filter(function (employee) { return !employee.isDemo; }),
+        columns: [COL_ID, COL_NAME, COL_MGR, {
+          key: "nppesCandidates", label: "NPI Candidates",
+          render: function (employee) {
+            return employee.nppesCandidates == null ? "No cached lookup"
+              : esc(employee.nppesCandidates) + " candidate(s); not registration verification";
+          }
+        }],
         search: searchEmp,
         empty: "No identities are loaded."
       });
+    }
+    if (source.key === "arrt") {
+      html += '<div class="ps-toolbar"><label for="arrtq">Employee name or ID:</label>'
+        + '<input class="ps-input" id="arrtq" data-filter="arrt-manual" value="'
+        + esc(gs("arrt-manual", [COL_ID], "sortName").q || "") + '"></div>';
+      html += grid({
+        id: "arrt-manual", title: "Manual ARRT Verification Worklist",
+        rows: D.employees.filter(function (employee) { return !employee.isDemo; }),
+        sort: "sortName", columns: [COL_ID, COL_NAME, COL_CRED, COL_THRU, COL_STATUS, COL_ACT],
+        search: searchEmp, empty: "No employees match this search."
+      });
+      html += '<div style="height:14px"></div>' + sourceCard(source);
     }
 
     html += '<div id="srcMsg"></div>'
@@ -1339,6 +1412,7 @@
     // Button actions
     var act = target.getAttribute("data-act");
     if (act === "save") { saveVerification(target.getAttribute("data-id")); return; }
+    if (act === "notify-all") { notifyAllImmediately(); return; }
     if (act === "clearsearch") { gridState.search.q = ""; render(); return; }
     if (act === "addnew" || act === "noop") { return; }
     if (act === "update-arrt-web") {
@@ -1393,7 +1467,50 @@
 
   /* ----------------------------------------------------- save behaviour */
 
-  function saveVerification(id) {
+  async function consoleRequest(path, operation, payload) {
+    var headers = { "X-Beacon-Update": operation };
+    var options = { method: "POST", headers: headers };
+    if (payload) {
+      headers["Content-Type"] = "application/json";
+      options.body = JSON.stringify(payload);
+    }
+    var response = await fetch(path, options);
+    if (!(response.headers.get("Content-Type") || "").includes("application/json")) {
+      throw new Error("Open the local console at http://127.0.0.1:8765; static preview cannot perform this operation.");
+    }
+    var result = await response.json();
+    if (!response.ok) throw new Error(result.error || "The operation failed.");
+    return result;
+  }
+
+  var mailPending = false;
+  async function notifyAllImmediately() {
+    if (mailPending) return;
+    if (!window.confirm("Send expiration warnings now to configured, authorized manager email addresses? Demo records will be labeled DEMO.")) return;
+    mailPending = true;
+    var msg = document.getElementById("mailMsg");
+    msg.innerHTML = '<div class="ps-note" role="status">Sending manager notifications...</div>';
+    try {
+      var result = await consoleRequest("/api/notify-all", "notifications");
+      msg.innerHTML = '<div class="ps-note"><p>' + esc(result.message) + '</p>'
+        + result.reports.map(function (report) {
+          return "<p>" + esc(report.manager) + ": " + esc(report.status) + "</p>";
+        }).join("")
+        + result.skipped.map(function (report) {
+          return "<p>Not sent to " + esc(report.manager) + ": " + esc(report.reason) + "</p>";
+        }).join("") + "</div>";
+    } catch (error) {
+      console.error("Manager notification failed", error);
+      msg.innerHTML = '<div class="ps-note is-error" role="alert"><p>' + esc(error.message) + "</p></div>";
+    } finally {
+      mailPending = false;
+      msg.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }
+
+  var verificationPending = false;
+  async function saveVerification(id) {
+    if (verificationPending) return;
     var outcome = document.getElementById("vOutcome");
     if (!outcome) { go("verify", { id: id }); return; }
 
@@ -1422,20 +1539,26 @@
       return;
     }
 
-    // This console is a design mockup. Saying "Saved" would be a lie, and a
-    // real verification typed here would be silently lost. Say so plainly.
-    var emp = byId(id);
-    msg.innerHTML = '<div class="ps-note is-warn">'
-      + "<p><b>Not saved \u2014 this console is a design mockup.</b></p>"
-      + "<p>The entry passed validation but was not written to the ledger."
-      + " To record it for real, run:</p>"
-      + '<p style="font-family:Consolas,monospace;background:#fff;'
-      + 'border:1px solid #d9d2bf;padding:6px;margin-top:4px">'
-      + "python v_5/record_verification.py " + esc(emp.id)
-      + " --outcome " + esc(outcome.value)
-      + (thru.value.trim() ? " --valid-thru " + esc(thru.value.trim()) : "")
-      + ' --by "' + esc(by.value.trim()) + '"'
-      + "</p></div>";
+    verificationPending = true;
+    msg.innerHTML = '<div class="ps-note" role="status">Saving manual verification...</div>';
+    try {
+      var result = await consoleRequest("/api/verification", "verification", {
+        employee_id: id, outcome: outcome.value, valid_thru: thru.value.trim(),
+        credentials: document.getElementById("vCred").value.trim(),
+        verified_by: by.value.trim(), verified_on: document.getElementById("vOn").value,
+        source: document.getElementById("vSrc").value.trim(),
+        notes: document.getElementById("vNotes").value.trim()
+      });
+      D = result.data;
+      go("employee", { id: id, tab: "history" });
+      return;
+    } catch (error) {
+      console.error("Manual verification failed", error);
+      msg.innerHTML = '<div class="ps-note is-error" role="alert"><p>'
+        + esc(error.message) + "</p></div>";
+    } finally {
+      verificationPending = false;
+    }
     msg.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
