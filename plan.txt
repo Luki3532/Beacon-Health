@@ -1,0 +1,78 @@
+BEACON CREDENTIAL TRACKER - 2 DAY HACKATHON PLAN
+Date: Oct 3, 2026
+
+Problem Statement
+Credential verification is too manual today.
+1. One manager can be tracking ~60 associates by hand.
+2. Verification requires multiple disconnected public portals.
+3. Evidence handling is paper-heavy and hard to audit.
+4. Expiration tracking is manual and easy to miss.
+
+Hackathon Goal (What "good" looks like)
+Build a believable, demo-ready operations console that shows:
+1. One place to monitor credential status and risks.
+2. Clear manager-facing actions before lapses happen.
+3. Evidence trail and data-source transparency.
+4. A practical path from manual process to scalable workflow.
+
+Core Demo Story (90 seconds)
+1. Start on home dashboard: show lapsed/expiring and source health.
+2. Drill into manager worklist: identify who needs action first.
+3. Open employee record: show ARRT + screening + history.
+4. Show NPPES source flow: imported roster, run API script transcript, identity roster.
+5. Close with alert cadence + audit log as compliance evidence.
+
+Day 1 - Ship the "must have" demo
+1. Stability pass
+	- No broken nav, no blank states, all key buttons wired.
+	- Smoke tests green before every checkpoint.
+2. Data source credibility
+	- NPPES source complete (import/replace + run script path + roster listing).
+	- Source cards explain exactly what is real vs mock.
+3. Manager workflow polish
+	- Sort by risk first (lapsed before due).
+	- Fast drilldown from summary -> manager -> employee.
+4. Notification UX
+	- "I am" manager selection.
+	- Saved schedule indicator and clear state.
+
+Day 2 - Make it judge-ready
+1. Product framing
+	- Tight opening problem statement.
+	- Explicit "before vs after" process comparison.
+2. Demo choreography
+	- Scripted click path with expected talking points.
+	- Backup path if internet/API is slow (cached/offline narrative).
+3. Trust + compliance messaging
+	- Keep mockup honesty language where needed.
+	- Emphasize audit trail and manager accountability.
+4. Visual consistency
+	- Align language, labels, and source semantics.
+	- Remove any leftover confusing copy.
+
+Stretch Ideas (only if time remains)
+1. CSV/XLSX field-mapping wizard for roster imports.
+2. Confidence column on NPPES roster (STRONG/LIKELY/POSSIBLE/WEAK/NONE).
+3. Export package for audit handoff (PDF/CSV summary).
+4. Role modes: Manager, HR, Compliance views.
+5. SLA timers: days to verify after a new hire/role change.
+
+Judging Rubric Alignment
+1. Impact: reduces missed expirations and manual overhead.
+2. Feasibility: built on public sources + practical human-in-the-loop steps.
+3. Usability: manager-first workflow and clear status cues.
+4. Reliability: tested flows, transparent source status, explicit limitations.
+
+Risks and Mitigation
+1. ARRT is manual only -> Mitigation: clear process and ledger evidence path.
+2. API/network issues during demo -> Mitigation: cached run output + offline path.
+3. Scope creep -> Mitigation: lock "must have" list by midday Day 2.
+
+Deliverables by End of Hackathon
+1. Working demo in presentation/prod and themed variant in presentation/prod v2.
+2. Green smoke checks for critical user paths.
+3. 3-minute demo script + 1-slide architecture overview.
+4. Short "next 30 days" roadmap for real implementation.
+
+Contact / Source Context
+Operational context gathered from Teresa (Beacon) on Oct 3.

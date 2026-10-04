@@ -1,0 +1,28 @@
+NPI IDENTITY CONFIRMATION
+============================================================
+Employee:   Tamara Smith (E036)
+On file:    Schoolcraft, MI  R.T.(R)(CT)(ARRT)
+Confidence: WEAK  -  Name match only; verify location and taxonomy by hand.
+
+Source: NPPES NPI Registry (public API, no key).
+Note:   An NPI confirms identity, NOT that the credential is current.
+
+Candidate NPI records (4):
+------------------------------------------------------------
+  NPI 1457166431  TAMARA SMITH
+    Licensed Practical Nurse
+    MT PLEASANT, MI   status=A
+
+  NPI 1447751730  TAMMY SMITH
+    Home Health Aide
+    MUSKEGON, MI   status=A
+
+  NPI 1952642654  TAMMY SMITH
+    Nurse's Aide
+    SOUTHGATE, MI   status=A
+
+  NPI 1841853223  TAMARA SPENCE
+    Nurse Practitioner, Acute Care
+    DEARBORN, MI   status=A
+
+* = taxonomy looks radiology/imaging related

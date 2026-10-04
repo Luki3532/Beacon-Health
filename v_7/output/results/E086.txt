@@ -1,0 +1,16 @@
+NPI IDENTITY CONFIRMATION
+============================================================
+Employee:   John Gustafson (E086)
+On file:    Otsego, MI  R.T.(T)(ARRT)
+Confidence: WEAK  -  Name match only; verify location and taxonomy by hand.
+
+Source: NPPES NPI Registry (public API, no key).
+Note:   An NPI confirms identity, NOT that the credential is current.
+
+Candidate NPI records (1):
+------------------------------------------------------------
+  NPI 1992777437  JOHN GUSTAFSON
+    Internal Medicine, Interventional Cardiology
+    KALAMAZOO, MI   status=A
+
+* = taxonomy looks radiology/imaging related

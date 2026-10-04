@@ -1,0 +1,59 @@
+CREDENTIAL SCREENING FINDINGS
+====================================================================
+Name:        Madison Brink
+Employee ID: E091
+Manager:     Tonya Blomeling
+Screened:    10/03/2026
+
+SCREENING VERDICT: CLEAR on screened sources  (federal 0, Michigan 0)
+ARRT REGISTRATION: pending human verification - see source 3
+
+--------------------------------------------------------------------
+SOURCE 1 of 3: OIG LEIE (federal exclusion list)   [AUTOMATED]
+--------------------------------------------------------------------
+RESULT: NO MATCH
+
+This name does not appear in the federal exclusion list.
+
+--------------------------------------------------------------------
+SOURCE 2 of 3: Michigan Medicaid sanctions (MDHHS) [AUTOMATED]
+--------------------------------------------------------------------
+RESULT: NO MATCH
+
+This name does not appear on the Michigan sanctioned provider list.
+
+--------------------------------------------------------------------
+SOURCE 3 of 3: ARRT registration status            [MANUAL]
+--------------------------------------------------------------------
+RESULT: NOT RETRIEVED AUTOMATICALLY - human verification required
+
+ARRT policy check (2026-10-03): robots.txt contains "Disallow: /Search"
+
+Beacon's PURPOSE here is expressly permitted. ARRT's Terms of Use,
+under "Use of Registrant Information," list verification "by employers
+to verify a technologist's certification and registration status (and
+valid-through dates)" as an approved use of the directory.
+
+What is not permitted is automated bulk extraction. So the lookup is
+done by a person, and the result is recorded below with their name on
+it. That is stronger evidence in a survey than scraped data, not
+weaker.
+
+VERIFICATION PACKET
+  Look up:     Madison Brink
+  Where:       https://www.arrt.org/pages/verify-credentials
+  Employee ID: E091
+  Manager:     Tonya Blomeling
+
+  Record the result here:
+    Credentials  ....................................
+    Valid through (MM/YYYY)  ........................
+    Verified by  ....................................
+    Date verified  ..................................
+
+  Broader/bulk employer access: ARRT 651.687.0048
+
+--------------------------------------------------------------------
+Exclusion screening is not credential verification. A clear screening
+result does not mean a registration is current.
+Contains real employee data - keep local, do not share or commit.

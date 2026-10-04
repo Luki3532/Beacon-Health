@@ -1,0 +1,109 @@
+LEIE LOOKUP INDEX
+Run date:  10/03/2026
+People:    101
+Flagged:   5
+Elapsed:   0.1s
+
+One result file per person in results/:
+
+  clear   Adam Brege                  E001_Brege_Adam.txt
+  clear   Glenn Eikelboom              E002_Eikelboom_Glenn.txt
+  clear   Michael Swerer-Shroll          E003_Swerer-Shroll_Michael.txt
+  clear   Erin Snider                 E004_Snider_Erin.txt
+  clear   Jennifer Squires                E005_Squires_Jennifer.txt
+  clear   Meghan Wolf                   E006_Wolf_Meghan.txt
+  clear   Chelsea Bockstanz              E007_Bockstanz_Chelsea.txt
+  clear   David Bautista               E008_Bautista_David.txt
+  clear   Samantha Rhoten                 E009_Rhoten_Samantha.txt
+  clear   Adam Brege                  E010_Brege_Adam.txt
+  clear   Sharon Hamilton               E011_Hamilton_Sharon.txt
+  clear   Amie Cook                   E012_Cook_Amie.txt
+  clear   Erica Flickinger-Glieden     E013_Flickinger-Glieden_Erica.txt
+  clear   Jamie Bryant                 E014_Bryant_Jamie.txt
+  clear   Jodi Inman                  E015_Inman_Jodi.txt
+  clear   Christine Dodd                   E016_Dodd_Christine.txt
+  clear   James Mize                   E017_Mize_James.txt
+  clear   Cameron Vander Stel            E018_Vander_Stel_Cameron.txt
+  clear   Janet Stahl                  E019_Stahl_Janet.txt
+  clear   Courtney Waterloo               E020_Waterloo_Courtney.txt
+  clear   Angela Spears                 E021_Spears_Angela.txt
+  clear   Peter Sagmoe                 E022_Sagmoe_Peter.txt
+  clear   Lexington Mardeusz               E023_Mardeusz_Lexington.txt
+  clear   John Wiese                  E024_Wiese_John.txt
+  clear   Ava Anglin                 E025_Anglin_Ava.txt
+  clear   Haylee Orns                   E026_Orns_Haylee.txt
+  clear   Jaynie Mueller                E027_Mueller_Jaynie.txt
+  clear   Jeramy Robertson              E028_Robertson_Jeramy.txt
+  clear   Paul Dziepak                E029_Dziepak_Paul.txt
+  clear   Benjamin Harper                 E030_Harper_Benjamin.txt
+  clear   Zachary Little                 E031_Little_Zachary.txt
+  clear   Wendi Wahl                   E032_Wahl_Wendi.txt
+  clear   Kelsey Westworth              E033_Westworth_Kelsey.txt
+  clear   Jessica Feltner                E034_Feltner_Jessica.txt
+  clear   Samantha Cahoon                 E035_Cahoon_Samantha.txt
+  clear   Tamara Smith                  E036_Smith_Tamara.txt
+  clear   Absak-Cer-Chin Sang                   E037_Sang_Absak-Cer-Chin.txt
+  clear   Lynett Wilson                 E038_Wilson_Lynett.txt
+  clear   Kelly Schanz                 E039_Schanz_Kelly.txt
+  clear   Vince Bennett                E040_Bennett_Vince.txt
+  clear   Cheyenne Stiles                 E041_Stiles_Cheyenne.txt
+  clear   Andrew Cybulski               E042_Cybulski_Andrew.txt
+  clear   Shannon Kotrba                 E043_Kotrba_Shannon.txt
+  clear   Kristen Klinger                E044_Klinger_Kristen.txt
+  clear   Delaney Sabel                  E045_Sabel_Delaney.txt
+  clear   Adam Doorlag                E046_Doorlag_Adam.txt
+  clear   Mikayla Bryant                 E047_Bryant_Mikayla.txt
+  clear   Julia Harris                 E048_Harris_Julia.txt
+  clear   Jennifer Lipps                  E049_Lipps_Jennifer.txt
+  clear   Scott McDonald               E050_McDonald_Scott.txt
+  clear   Matthew Patton                 E051_Patton_Matthew.txt
+  clear   Bailey Paddock                E052_Paddock_Bailey.txt
+  clear   Hana VanOsdol               E053_VanOsdol_Hana.txt
+  clear   Kayla Hayward                E054_Hayward_Kayla.txt
+  clear   Kimberlee Rolon                  E055_Rolon_Kimberlee.txt
+  clear   Cheri Hulce                  E056_Hulce_Cheri.txt
+  clear   Darcia Artz                   E057_Artz_Darcia.txt
+  clear   Jonathan Wells                  E058_Wells_Jonathan.txt
+  REVIEW  Carrie Wilson                 E059_Wilson_Carrie.txt
+  clear   Josilyn Brown                  E060_Brown_Josilyn.txt
+  clear   Jennifer Barts                  E061_Barts_Jennifer.txt
+  clear   Christopher Gallagher              E062_Gallagher_Christopher.txt
+  clear   Angela Janssen                E063_Janssen_Angela.txt
+  clear   Emily Bigda                  E064_Bigda_Emily.txt
+  clear   Victor Agnone                 E065_Agnone_Victor.txt
+  clear   Alicia Kalas                  E066_Kalas_Alicia.txt
+  clear   Rachel Dougherty              E067_Dougherty_Rachel.txt
+  REVIEW  Kenneth Williams               E068_Williams_Kenneth.txt
+  clear   Kristie Budd                   E069_Budd_Kristie.txt
+  clear   Poppaea Ramey                  E070_Ramey_Poppaea.txt
+  clear   Noelle Smith                  E071_Smith_Noelle.txt
+  clear   Paul Lambrix                E072_Lambrix_Paul.txt
+  clear   Gregory Ramey                  E073_Ramey_Gregory.txt
+  clear   Macee Morey                  E074_Morey_Macee.txt
+  clear   Denise Dennis                 E075_Dennis_Denise.txt
+  clear   Dominique Johnston               E076_Johnston_Dominique.txt
+  REVIEW  Heather Ogden                  E077_Ogden_Heather.txt
+  clear   Suzanne Evans                  E078_Evans_Suzanne.txt
+  clear   Mary Beth Kelly                  E079_Kelly_Mary_Beth.txt
+  clear   Stephanie Vaughn                 E080_Vaughn_Stephanie.txt
+  clear   Krystal Fischer                E081_Fischer_Krystal.txt
+  clear   Rebecca Gawkowski              E082_Gawkowski_Rebecca.txt
+  clear   Ami Salisbury              E083_Salisbury_Ami.txt
+  clear   Erin Murray                 E084_Murray_Erin.txt
+  REVIEW  David Barrett                E085_Barrett_David.txt
+  clear   John Gustafson              E086_Gustafson_John.txt
+  clear   Chris Hilton                 E087_Hilton_Chris.txt
+  clear   Christina Busick                 E088_Busick_Christina.txt
+  clear   Joshua Worden                 E089_Worden_Joshua.txt
+  clear   Lawrence Masarira               E090_Masarira_Lawrence.txt
+  clear   Madison Brink                  E091_Brink_Madison.txt
+  clear   Natalie Juarez                 E092_Juarez_Natalie.txt
+  clear   Darren Covell                 E093_Covell_Darren.txt
+  clear   Molly Gorniewicz             E094_Gorniewicz_Molly.txt
+  clear   Sharon French                 E095_French_Sharon.txt
+  clear   Holly Barner                 E096_Barner_Holly.txt
+  clear   Sierra Schut                  E097_Schut_Sierra.txt
+  clear   Laurie MacRitchie             E098_MacRitchie_Laurie.txt
+  REVIEW  Tyler Smith                  E099_Smith_Tyler.txt
+  clear   Robert Guise                  E100_Guise_Robert.txt
+  clear   Kayla Broker                 E101_Broker_Kayla.txt

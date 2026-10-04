@@ -1,0 +1,16 @@
+NPI IDENTITY CONFIRMATION
+============================================================
+Employee:   Joshua Worden (E089)
+On file:    Mattawan, MI  R.T.(N)(ARRT)
+Confidence: WEAK  -  Name match only; verify location and taxonomy by hand.
+
+Source: NPPES NPI Registry (public API, no key).
+Note:   An NPI confirms identity, NOT that the credential is current.
+
+Candidate NPI records (1):
+------------------------------------------------------------
+  NPI 1902901242  JOSH WORDEN
+    Physical Therapist
+    PLYMOUTH, MI   status=A
+
+* = taxonomy looks radiology/imaging related

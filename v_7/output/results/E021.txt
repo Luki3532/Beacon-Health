@@ -1,0 +1,16 @@
+NPI IDENTITY CONFIRMATION
+============================================================
+Employee:   Angela Spears (E021)
+On file:    Paw Paw, MI  R.T.(N)(ARRT)
+Confidence: WEAK  -  Name match only; verify location and taxonomy by hand.
+
+Source: NPPES NPI Registry (public API, no key).
+Note:   An NPI confirms identity, NOT that the credential is current.
+
+Candidate NPI records (1):
+------------------------------------------------------------
+  NPI 1043711138  ANGELA SPEARS
+    Speech-Language Pathologist,  
+    COMMERCE TOWNSHIP, MI   status=A
+
+* = taxonomy looks radiology/imaging related

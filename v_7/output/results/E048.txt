@@ -1,0 +1,20 @@
+NPI IDENTITY CONFIRMATION
+============================================================
+Employee:   Julia Harris (E048)
+On file:    Otsego, MI  R.T.(T)(ARRT)
+Confidence: WEAK  -  Name match only; verify location and taxonomy by hand.
+
+Source: NPPES NPI Registry (public API, no key).
+Note:   An NPI confirms identity, NOT that the credential is current.
+
+Candidate NPI records (2):
+------------------------------------------------------------
+  NPI 1114469723  JULIA HARRIS
+    Behavior Technician
+    YPSILANTI, MI   status=A
+
+  NPI 1588282248  JULIA HARRIS
+    Behavior Technician
+    FARMINGTON HILLS, MI   status=A
+
+* = taxonomy looks radiology/imaging related

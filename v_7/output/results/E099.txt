@@ -1,0 +1,36 @@
+NPI IDENTITY CONFIRMATION
+============================================================
+Employee:   Tyler Smith (E099)
+On file:    Battle Creek, MI  R.T.(R)(MR)(ARRT)
+Confidence: WEAK  -  Name match only; verify location and taxonomy by hand.
+
+Source: NPPES NPI Registry (public API, no key).
+Note:   An NPI confirms identity, NOT that the credential is current.
+
+Candidate NPI records (6):
+------------------------------------------------------------
+  NPI 1811424104  TYLER SMITH
+    Physical Therapy Assistant
+    EAST LANSING, MI   status=A
+
+  NPI 1750942462  TYLER SMITH
+    Dentist, General Practice
+    HART, MI   status=A
+
+  NPI 1275316622  TYLER SMITH
+    Behavior Technician
+    MT PLEASANT, MI   status=A
+
+  NPI 1265310890  TYLER SMITH
+    Counselor
+    CLINTON TOWNSHIP, MI   status=A
+
+  NPI 1841144839  TYLER SMITH
+    Behavior Technician
+    FARMINGTON HILLS, MI   status=A
+
+  NPI 1114695285  TYLER SMITH
+    Nurse Practitioner, Psych/Mental Health
+    INDIANAPOLIS, IN   status=A
+
+* = taxonomy looks radiology/imaging related

@@ -1,0 +1,40 @@
+NPI IDENTITY CONFIRMATION
+============================================================
+Employee:   Kenneth Williams (E068)
+On file:    Plainwell, MI  R.T.(N)(ARRT)
+Confidence: LIKELY  -  Radiology taxonomy and matching state.
+
+Source: NPPES NPI Registry (public API, no key).
+Note:   An NPI confirms identity, NOT that the credential is current.
+
+Candidate NPI records (7):
+------------------------------------------------------------
+* NPI 1528537453  KENNETH WILLIAMS
+    Technician/Technologist
+    BINGHAM FARMS, MI   status=A
+
+  NPI 1194141382  KENNETH WILLIAMS
+    Occupational Therapy Assistant
+    LOUISVILLE, KY   status=A
+
+  NPI 1023133923  KENNETH WILLIAMS
+    Social Worker, Clinical
+    DETROIT, MI   status=A
+
+  NPI 1679636591  KENNETH WILLIAMS
+    Nurse Anesthetist, Certified Registered
+    IONIA, MI   status=A
+
+  NPI 1194271452  KENNETH WILLIAMS
+    Massage Therapist
+    DETROIT, MI   status=A
+
+  NPI 1518890565  KENNETH WILLIAMS
+    Behavior Technician
+    DETROIT, MI   status=A
+
+  NPI 1053412684  KENNETH WILLIAMS
+    Dentist, General Practice
+    BELLEVILLE, MI   status=A
+
+* = taxonomy looks radiology/imaging related

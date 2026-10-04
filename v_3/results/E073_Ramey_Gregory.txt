@@ -1,0 +1,14 @@
+OIG LEIE EXCLUSION LOOKUP
+============================================================
+Name:        Gregory Ramey
+Employee ID: E073
+Manager:     Davison, Christianna E
+Searched on: 10/03/2026
+Source:      OIG LEIE downloadable database
+Name forms searched: RAMEY
+
+RESULT: NO MATCH
+
+This name does not appear in the federal exclusion list.
+------------------------------------------------------------
+Contains real employee data. Keep local; do not share or commit.

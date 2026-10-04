@@ -1,0 +1,321 @@
+/* ==========================================================================
+   PeopleSoft Fluid UI - banner and tile homepage
+   Mimics the PeopleTools 8.58 Fluid look for a credentialing demo.
+   Icons are drawn in CSS so the mockup has no external dependencies.
+   ========================================================================== */
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  background: #eff0f2;
+  color: #22272b;
+}
+
+/* ---------------------------------------------------------------- banner */
+
+.ps-banner {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 4px 0 2px;
+  background: #2f3a45;
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .35);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.ps-banner-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.15;
+  padding-left: 4px;
+  min-width: 0;
+}
+
+.ps-banner-org {
+  font-size: 10px;
+  letter-spacing: .4px;
+  color: #b7c2cc;
+  text-transform: uppercase;
+}
+
+.ps-banner-page {
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ps-banner-spacer { flex: 1; }
+
+.ps-banner-btn {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.ps-banner-btn:hover { background: rgba(255, 255, 255, .13); }
+.ps-banner-btn:focus-visible { outline: 2px solid #8fc7ff; outline-offset: -2px; }
+
+/* Database/environment indicator. Real non-production PeopleSoft instances
+   display the database name here, which is what marks this as non-prod. */
+.ps-env {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .6px;
+  padding: 2px 7px;
+  margin-right: 8px;
+  border: 1px solid #7d8b99;
+  border-radius: 2px;
+  color: #cdd6de;
+  white-space: nowrap;
+}
+
+/* ----------------------------------------------------------- banner icons */
+
+.ps-ico-home,
+.ps-ico-search,
+.ps-ico-bell,
+.ps-ico-dots,
+.ps-ico-navbar,
+.ps-ico-back { display: block; position: relative; }
+
+.ps-ico-home {
+  width: 0; height: 0;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-bottom: 8px solid #fff;
+  margin-top: -5px;
+}
+.ps-ico-home::after {
+  content: "";
+  position: absolute;
+  left: -5px; top: 8px;
+  width: 10px; height: 7px;
+  background: #fff;
+}
+
+.ps-ico-search {
+  width: 11px; height: 11px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+.ps-ico-search::after {
+  content: "";
+  position: absolute;
+  right: -5px; bottom: -4px;
+  width: 7px; height: 2px;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+.ps-ico-bell {
+  width: 12px; height: 11px;
+  background: #fff;
+  border-radius: 6px 6px 2px 2px;
+}
+.ps-ico-bell::after {
+  content: "";
+  position: absolute;
+  left: -2px; bottom: -3px;
+  width: 16px; height: 2px;
+  background: #fff;
+  border-radius: 1px;
+}
+
+.ps-ico-dots { width: 4px; height: 4px; background: #fff; border-radius: 50%; }
+.ps-ico-dots::before,
+.ps-ico-dots::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 4px; height: 4px;
+  background: #fff;
+  border-radius: 50%;
+}
+.ps-ico-dots::before { top: -6px; }
+.ps-ico-dots::after  { top: 6px; }
+
+.ps-ico-navbar {
+  width: 16px; height: 2px;
+  background: #fff;
+  box-shadow: 0 5px 0 #fff, 0 -5px 0 #fff;
+}
+
+.ps-ico-back {
+  width: 9px; height: 9px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(45deg);
+  margin-left: 4px;
+}
+
+.ps-ico-badge {
+  position: absolute;
+  top: 4px; right: 3px;
+  min-width: 15px;
+  height: 15px;
+  padding: 0 3px;
+  background: #c0392b;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 15px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.ps-ico-badge[data-zero="1"] { display: none; }
+
+/* -------------------------------------------------------- homepage shell */
+
+.ps-home {
+  padding: 18px 22px 40px;
+}
+
+.ps-home-bar {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.ps-home-title {
+  font-size: 21px;
+  font-weight: 300;
+  color: #2f3a45;
+}
+
+.ps-home-caret {
+  font-size: 11px;
+  color: #6b7a88;
+}
+
+.ps-home-asof {
+  margin-left: auto;
+  font-size: 11px;
+  color: #6b7a88;
+}
+
+/* --------------------------------------------------------------- tiles */
+
+.ps-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(188px, 1fr));
+  gap: 14px;
+  max-width: 1180px;
+}
+
+.ps-tile {
+  position: relative;
+  min-height: 148px;
+  padding: 14px;
+  background: #fff;
+  border: 1px solid #d6dade;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .09);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow .12s ease, transform .12s ease;
+}
+
+.ps-tile:hover {
+  box-shadow: 0 3px 9px rgba(0, 0, 0, .17);
+  transform: translateY(-1px);
+}
+
+.ps-tile:focus-visible { outline: 2px solid #1f6fb2; outline-offset: 1px; }
+
+.ps-tile-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2f3a45;
+  margin-bottom: 2px;
+}
+
+.ps-tile-sub {
+  font-size: 10.5px;
+  color: #77838e;
+  margin-bottom: 10px;
+}
+
+.ps-tile-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ps-tile-metric {
+  font-size: 40px;
+  font-weight: 200;
+  line-height: 1;
+  color: #2f3a45;
+}
+
+.ps-tile-metric-note {
+  font-size: 10.5px;
+  color: #77838e;
+  margin-top: 5px;
+}
+
+.ps-tile-rows { font-size: 11px; }
+
+.ps-tile-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0;
+  color: #44505b;
+}
+
+.ps-tile-row b { font-weight: 600; }
+
+.ps-tile-badge {
+  position: absolute;
+  top: 9px; right: 9px;
+  min-width: 19px;
+  height: 19px;
+  padding: 0 5px;
+  background: #c0392b;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 19px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.ps-tile-badge.is-warn   { background: #c87f0a; }
+.ps-tile-badge.is-ok     { background: #3d7a3d; }
+
+.ps-tile-foot {
+  font-size: 10px;
+  color: #8a949d;
+  border-top: 1px solid #edeff1;
+  padding-top: 7px;
+  margin-top: 7px;
+}
+
+/* severity accents on the left edge */
+.ps-tile.sev-red    { border-left: 3px solid #c0392b; }
+.ps-tile.sev-amber  { border-left: 3px solid #c87f0a; }
+.ps-tile.sev-green  { border-left: 3px solid #3d7a3d; }
+.ps-tile.sev-blue   { border-left: 3px solid #1f6fb2; }

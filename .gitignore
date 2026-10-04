@@ -1,0 +1,20 @@
+# Employee-identifying datasets (raw roster/profile sources)
+v_1/employee_data.csv
+v_1/roster.csv
+v_1/managers.csv
+
+# Verification and findings exports with employee-level details
+v_5/verification_log.csv
+v_6/output/FINDINGS_SUMMARY.txt
+v_7/output/FINDINGS_SUMMARY.txt
+v_4/lookup_index.txt
+v_4/mi_sanctions_downloaded.txt
+v_4/results/**
+
+# Imported roster files used for matching/verification runs
+v_7/active/credentialing_list.csv
+credentialing list/**
+
+# Generated UI data bundles that include employee records
+presentation/prod/assets/data.js
+presentation/prod v2/assets/data.js

@@ -1,0 +1,823 @@
+CREDENTIAL VERIFICATION WORKLIST
+========================================================================
+As-of date:  11/15/2026
+Window:      30 days
+Roster:      101 people
+
+  Lapsed:          2
+  Due in window:   0
+  Never verified:  98
+  Current:         1
+
+Needing attention: 100
+========================================================================
+
+Each entry below needs a human lookup. Verify the registration,
+then record the result with the command shown.
+
+------------------------------------------------------------------------
+
+[1 of 100]  Darcia Artz  (E057)
+    Status:    LAPSED 46 days ago (valid thru 09/30/2026)
+    Manager:   Kathryn E McIntyre
+    Last check: 2026-10-03 by DEMO DATA - not a real verification - verified (DEMO)
+    On file:   R.T.(R)(M)(ARRT) valid thru 12/2026  (UNVERIFIED - synthetic placeholder)
+    Look up:   Darcia Artz at https://www.arrt.org/
+    Record it: python record_verification.py E057 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[2 of 100]  Ava Anglin  (E025)
+    Status:    LAPSED 15 days ago (valid thru 10/31/2026)
+    Manager:   Kathryn E McIntyre
+    Last check: 2026-10-03 by DEMO DATA - not a real verification - verified (DEMO)
+    On file:   R.T.(R)(MR)(ARRT) valid thru 07/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Ava Anglin at https://www.arrt.org/
+    Record it: python record_verification.py E025 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[3 of 100]  Holly Barner  (E096)
+    Status:    never verified
+    Manager:   Bryan A Hemenway
+    Last check: none on record
+    On file:   R.T.(R)(ARRT) valid thru 02/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Holly Barner at https://www.arrt.org/
+    Record it: python record_verification.py E096 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[4 of 100]  David Barrett  (E085)
+    Status:    never verified
+    Manager:   Bryan A Hemenway
+    Last check: none on record
+    On file:   R.T.(N)(ARRT) valid thru 09/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   David Barrett at https://www.arrt.org/
+    Record it: python record_verification.py E085 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[5 of 100]  Jennifer Barts  (E061)
+    Status:    never verified
+    Manager:   Kimberly K Gjeltema
+    Last check: none on record
+    On file:   R.T.(R)(MR)(ARRT) valid thru 08/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Jennifer Barts at https://www.arrt.org/
+    Record it: python record_verification.py E061 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[6 of 100]  David Bautista  (E008)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(N)(ARRT) valid thru 07/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   David Bautista at https://www.arrt.org/
+    Record it: python record_verification.py E008 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[7 of 100]  Vince Bennett  (E040)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(T)(ARRT) valid thru 02/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Vince Bennett at https://www.arrt.org/
+    Record it: python record_verification.py E040 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[8 of 100]  Emily Bigda  (E064)
+    Status:    never verified
+    Manager:   Kimberly K Gjeltema
+    Last check: none on record
+    On file:   R.T.(N)(ARRT) valid thru 10/2026  (UNVERIFIED - synthetic placeholder)
+    Look up:   Emily Bigda at https://www.arrt.org/
+    Record it: python record_verification.py E064 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[9 of 100]  Chelsea Bockstanz  (E007)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(M)(ARRT) valid thru 04/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Chelsea Bockstanz at https://www.arrt.org/
+    Record it: python record_verification.py E007 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[10 of 100]  Adam Brege  (E001)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(ARRT) valid thru 10/2026  (UNVERIFIED - synthetic placeholder)
+    Look up:   Adam Brege at https://www.arrt.org/
+    Record it: python record_verification.py E001 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[11 of 100]  Adam Brege  (E010)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(N)(ARRT) valid thru 08/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Adam Brege at https://www.arrt.org/
+    Record it: python record_verification.py E010 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[12 of 100]  Madison Brink  (E091)
+    Status:    never verified
+    Manager:   Tonya Blomeling
+    Last check: none on record
+    On file:   R.T.(S)(ARRT) valid thru 10/2026  (UNVERIFIED - synthetic placeholder)
+    Look up:   Madison Brink at https://www.arrt.org/
+    Record it: python record_verification.py E091 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[13 of 100]  Kayla Broker  (E101)
+    Status:    never verified
+    Manager:   Bryan A Hemenway
+    Last check: none on record
+    On file:   R.T.(S)(ARRT) valid thru 08/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Kayla Broker at https://www.arrt.org/
+    Record it: python record_verification.py E101 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[14 of 100]  Josilyn Brown  (E060)
+    Status:    never verified
+    Manager:   Kimberly K Gjeltema
+    Last check: none on record
+    On file:   R.T.(R)(M)(ARRT) valid thru 09/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Josilyn Brown at https://www.arrt.org/
+    Record it: python record_verification.py E060 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[15 of 100]  Jamie Bryant  (E014)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(CT)(ARRT) valid thru 03/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Jamie Bryant at https://www.arrt.org/
+    Record it: python record_verification.py E014 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[16 of 100]  Mikayla Bryant  (E047)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(CT)(ARRT) valid thru 12/2026  (UNVERIFIED - synthetic placeholder)
+    Look up:   Mikayla Bryant at https://www.arrt.org/
+    Record it: python record_verification.py E047 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[17 of 100]  Kristie Budd  (E069)
+    Status:    never verified
+    Manager:   Kimberly K Gjeltema
+    Last check: none on record
+    On file:   R.T.(R)(CT)(ARRT) valid thru 07/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Kristie Budd at https://www.arrt.org/
+    Record it: python record_verification.py E069 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[18 of 100]  Christina Busick  (E088)
+    Status:    never verified
+    Manager:   Bryan A Hemenway
+    Last check: none on record
+    On file:   R.T.(MR)(ARRT) valid thru 06/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Christina Busick at https://www.arrt.org/
+    Record it: python record_verification.py E088 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[19 of 100]  Samantha Cahoon  (E035)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(CT)(ARRT) valid thru 05/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Samantha Cahoon at https://www.arrt.org/
+    Record it: python record_verification.py E035 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[20 of 100]  Amie Cook  (E012)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(ARRT) valid thru 08/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Amie Cook at https://www.arrt.org/
+    Record it: python record_verification.py E012 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[21 of 100]  Darren Covell  (E093)
+    Status:    never verified
+    Manager:   Tonya Blomeling
+    Last check: none on record
+    On file:   R.T.(R)(MR)(ARRT) valid thru 03/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Darren Covell at https://www.arrt.org/
+    Record it: python record_verification.py E093 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[22 of 100]  Andrew Cybulski  (E042)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(MR)(ARRT) valid thru 03/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Andrew Cybulski at https://www.arrt.org/
+    Record it: python record_verification.py E042 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[23 of 100]  Denise Dennis  (E075)
+    Status:    never verified
+    Manager:   Christianna E Davison
+    Last check: none on record
+    On file:   R.T.(MR)(ARRT) valid thru 11/2026  (UNVERIFIED - synthetic placeholder)
+    Look up:   Denise Dennis at https://www.arrt.org/
+    Record it: python record_verification.py E075 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[24 of 100]  Christine Dodd  (E016)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(ARRT) valid thru 02/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Christine Dodd at https://www.arrt.org/
+    Record it: python record_verification.py E016 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[25 of 100]  Adam Doorlag  (E046)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(ARRT) valid thru 01/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Adam Doorlag at https://www.arrt.org/
+    Record it: python record_verification.py E046 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[26 of 100]  Rachel Dougherty  (E067)
+    Status:    never verified
+    Manager:   Kimberly K Gjeltema
+    Last check: none on record
+    On file:   R.T.(N)(ARRT) valid thru 09/2026  (UNVERIFIED - synthetic placeholder)
+    Look up:   Rachel Dougherty at https://www.arrt.org/
+    Record it: python record_verification.py E067 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[27 of 100]  Paul Dziepak  (E029)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(N)(ARRT) valid thru 06/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Paul Dziepak at https://www.arrt.org/
+    Record it: python record_verification.py E029 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[28 of 100]  Glenn Eikelboom  (E002)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(CT)(ARRT) valid thru 10/2026  (UNVERIFIED - synthetic placeholder)
+    Look up:   Glenn Eikelboom at https://www.arrt.org/
+    Record it: python record_verification.py E002 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[29 of 100]  Suzanne Evans  (E078)
+    Status:    never verified
+    Manager:   Christianna E Davison
+    Last check: none on record
+    On file:   R.T.(R)(ARRT) valid thru 06/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Suzanne Evans at https://www.arrt.org/
+    Record it: python record_verification.py E078 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[30 of 100]  Jessica Feltner  (E034)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(ARRT) valid thru 01/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Jessica Feltner at https://www.arrt.org/
+    Record it: python record_verification.py E034 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[31 of 100]  Krystal Fischer  (E081)
+    Status:    never verified
+    Manager:   Christianna E Davison
+    Last check: none on record
+    On file:   R.T.(R)(ARRT) valid thru 12/2026  (UNVERIFIED - synthetic placeholder)
+    Look up:   Krystal Fischer at https://www.arrt.org/
+    Record it: python record_verification.py E081 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[32 of 100]  Erica Flickinger-Glieden  (E013)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(ARRT) valid thru 06/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Erica Flickinger-Glieden at https://www.arrt.org/
+    Record it: python record_verification.py E013 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[33 of 100]  Sharon French  (E095)
+    Status:    never verified
+    Manager:   Tonya Blomeling
+    Last check: none on record
+    On file:   R.T.(R)(M)(ARRT) valid thru 09/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Sharon French at https://www.arrt.org/
+    Record it: python record_verification.py E095 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[34 of 100]  Christopher Gallagher  (E062)
+    Status:    never verified
+    Manager:   Kimberly K Gjeltema
+    Last check: none on record
+    On file:   R.T.(MR)(ARRT) valid thru 05/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Christopher Gallagher at https://www.arrt.org/
+    Record it: python record_verification.py E062 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[35 of 100]  Rebecca Gawkowski  (E082)
+    Status:    never verified
+    Manager:   Christianna E Davison
+    Last check: none on record
+    On file:   R.T.(MR)(ARRT) valid thru 08/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Rebecca Gawkowski at https://www.arrt.org/
+    Record it: python record_verification.py E082 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[36 of 100]  Molly Gorniewicz  (E094)
+    Status:    never verified
+    Manager:   Tonya Blomeling
+    Last check: none on record
+    On file:   R.T.(R)(MR)(ARRT) valid thru 05/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Molly Gorniewicz at https://www.arrt.org/
+    Record it: python record_verification.py E094 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[37 of 100]  Robert Guise  (E100)
+    Status:    never verified
+    Manager:   Tonya Blomeling
+    Last check: none on record
+    On file:   R.T.(R)(M)(ARRT) valid thru 04/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Robert Guise at https://www.arrt.org/
+    Record it: python record_verification.py E100 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[38 of 100]  John Gustafson  (E086)
+    Status:    never verified
+    Manager:   Bryan A Hemenway
+    Last check: none on record
+    On file:   R.T.(T)(ARRT) valid thru 09/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   John Gustafson at https://www.arrt.org/
+    Record it: python record_verification.py E086 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[39 of 100]  Sharon Hamilton  (E011)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(MR)(ARRT) valid thru 08/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Sharon Hamilton at https://www.arrt.org/
+    Record it: python record_verification.py E011 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[40 of 100]  Benjamin Harper  (E030)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(M)(ARRT) valid thru 05/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Benjamin Harper at https://www.arrt.org/
+    Record it: python record_verification.py E030 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[41 of 100]  Julia Harris  (E048)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(T)(ARRT) valid thru 09/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Julia Harris at https://www.arrt.org/
+    Record it: python record_verification.py E048 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[42 of 100]  Kayla Hayward  (E054)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(S)(ARRT) valid thru 04/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Kayla Hayward at https://www.arrt.org/
+    Record it: python record_verification.py E054 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[43 of 100]  Chris Hilton  (E087)
+    Status:    never verified
+    Manager:   Bryan A Hemenway
+    Last check: none on record
+    On file:   R.T.(R)(CT)(ARRT) valid thru 10/2026  (UNVERIFIED - synthetic placeholder)
+    Look up:   Chris Hilton at https://www.arrt.org/
+    Record it: python record_verification.py E087 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[44 of 100]  Cheri Hulce  (E056)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(N)(ARRT) valid thru 09/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Cheri Hulce at https://www.arrt.org/
+    Record it: python record_verification.py E056 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[45 of 100]  Jodi Inman  (E015)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(MR)(ARRT) valid thru 08/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Jodi Inman at https://www.arrt.org/
+    Record it: python record_verification.py E015 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[46 of 100]  Angela Janssen  (E063)
+    Status:    never verified
+    Manager:   Kimberly K Gjeltema
+    Last check: none on record
+    On file:   R.T.(S)(ARRT) valid thru 07/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Angela Janssen at https://www.arrt.org/
+    Record it: python record_verification.py E063 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[47 of 100]  Dominique Johnston  (E076)
+    Status:    never verified
+    Manager:   Christianna E Davison
+    Last check: none on record
+    On file:   R.T.(R)(M)(ARRT) valid thru 04/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Dominique Johnston at https://www.arrt.org/
+    Record it: python record_verification.py E076 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[48 of 100]  Natalie Juarez  (E092)
+    Status:    never verified
+    Manager:   Tonya Blomeling
+    Last check: none on record
+    On file:   R.T.(T)(ARRT) valid thru 04/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Natalie Juarez at https://www.arrt.org/
+    Record it: python record_verification.py E092 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[49 of 100]  Alicia Kalas  (E066)
+    Status:    never verified
+    Manager:   Kimberly K Gjeltema
+    Last check: none on record
+    On file:   R.T.(R)(M)(ARRT) valid thru 06/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Alicia Kalas at https://www.arrt.org/
+    Record it: python record_verification.py E066 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[50 of 100]  Mary Beth Kelly  (E079)
+    Status:    never verified
+    Manager:   Christianna E Davison
+    Last check: none on record
+    On file:   R.T.(T)(ARRT) valid thru 12/2026  (UNVERIFIED - synthetic placeholder)
+    Look up:   Mary Beth Kelly at https://www.arrt.org/
+    Record it: python record_verification.py E079 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[51 of 100]  Kristen Klinger  (E044)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(ARRT) valid thru 03/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Kristen Klinger at https://www.arrt.org/
+    Record it: python record_verification.py E044 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[52 of 100]  Shannon Kotrba  (E043)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(M)(ARRT) valid thru 05/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Shannon Kotrba at https://www.arrt.org/
+    Record it: python record_verification.py E043 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[53 of 100]  Paul Lambrix  (E072)
+    Status:    never verified
+    Manager:   Kimberly K Gjeltema
+    Last check: none on record
+    On file:   R.T.(R)(M)(ARRT) valid thru 04/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Paul Lambrix at https://www.arrt.org/
+    Record it: python record_verification.py E072 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[54 of 100]  Jennifer Lipps  (E049)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(CT)(ARRT) valid thru 06/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Jennifer Lipps at https://www.arrt.org/
+    Record it: python record_verification.py E049 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[55 of 100]  Zachary Little  (E031)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(ARRT) valid thru 04/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Zachary Little at https://www.arrt.org/
+    Record it: python record_verification.py E031 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[56 of 100]  Laurie MacRitchie  (E098)
+    Status:    never verified
+    Manager:   Tonya Blomeling
+    Last check: none on record
+    On file:   R.T.(R)(MR)(ARRT) valid thru 03/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Laurie MacRitchie at https://www.arrt.org/
+    Record it: python record_verification.py E098 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[57 of 100]  Lexington Mardeusz  (E023)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(CT)(ARRT) valid thru 02/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Lexington Mardeusz at https://www.arrt.org/
+    Record it: python record_verification.py E023 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[58 of 100]  Lawrence Masarira  (E090)
+    Status:    never verified
+    Manager:   Tonya Blomeling
+    Last check: none on record
+    On file:   R.T.(MR)(ARRT) valid thru 12/2026  (UNVERIFIED - synthetic placeholder)
+    Look up:   Lawrence Masarira at https://www.arrt.org/
+    Record it: python record_verification.py E090 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[59 of 100]  Scott McDonald  (E050)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(MR)(ARRT) valid thru 12/2026  (UNVERIFIED - synthetic placeholder)
+    Look up:   Scott McDonald at https://www.arrt.org/
+    Record it: python record_verification.py E050 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[60 of 100]  James Mize  (E017)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(MR)(ARRT) valid thru 07/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   James Mize at https://www.arrt.org/
+    Record it: python record_verification.py E017 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[61 of 100]  Macee Morey  (E074)
+    Status:    never verified
+    Manager:   Christianna E Davison
+    Last check: none on record
+    On file:   R.T.(R)(ARRT) valid thru 02/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Macee Morey at https://www.arrt.org/
+    Record it: python record_verification.py E074 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[62 of 100]  Jaynie Mueller  (E027)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(T)(ARRT) valid thru 06/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Jaynie Mueller at https://www.arrt.org/
+    Record it: python record_verification.py E027 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[63 of 100]  Erin Murray  (E084)
+    Status:    never verified
+    Manager:   Bryan A Hemenway
+    Last check: none on record
+    On file:   R.T.(R)(MR)(ARRT) valid thru 06/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Erin Murray at https://www.arrt.org/
+    Record it: python record_verification.py E084 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[64 of 100]  Heather Ogden  (E077)
+    Status:    never verified
+    Manager:   Christianna E Davison
+    Last check: none on record
+    On file:   R.T.(T)(ARRT) valid thru 08/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Heather Ogden at https://www.arrt.org/
+    Record it: python record_verification.py E077 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[65 of 100]  Haylee Orns  (E026)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(M)(ARRT) valid thru 08/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Haylee Orns at https://www.arrt.org/
+    Record it: python record_verification.py E026 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[66 of 100]  Bailey Paddock  (E052)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(T)(ARRT) valid thru 07/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Bailey Paddock at https://www.arrt.org/
+    Record it: python record_verification.py E052 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[67 of 100]  Matthew Patton  (E051)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(CT)(ARRT) valid thru 08/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Matthew Patton at https://www.arrt.org/
+    Record it: python record_verification.py E051 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[68 of 100]  Gregory Ramey  (E073)
+    Status:    never verified
+    Manager:   Christianna E Davison
+    Last check: none on record
+    On file:   R.T.(R)(CT)(ARRT) valid thru 04/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Gregory Ramey at https://www.arrt.org/
+    Record it: python record_verification.py E073 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[69 of 100]  Poppaea Ramey  (E070)
+    Status:    never verified
+    Manager:   Kimberly K Gjeltema
+    Last check: none on record
+    On file:   R.T.(N)(ARRT) valid thru 08/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Poppaea Ramey at https://www.arrt.org/
+    Record it: python record_verification.py E070 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[70 of 100]  Samantha Rhoten  (E009)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(MR)(ARRT) valid thru 05/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Samantha Rhoten at https://www.arrt.org/
+    Record it: python record_verification.py E009 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[71 of 100]  Jeramy Robertson  (E028)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(MR)(ARRT) valid thru 07/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Jeramy Robertson at https://www.arrt.org/
+    Record it: python record_verification.py E028 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[72 of 100]  Kimberlee Rolon  (E055)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(MR)(ARRT) valid thru 09/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Kimberlee Rolon at https://www.arrt.org/
+    Record it: python record_verification.py E055 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[73 of 100]  Delaney Sabel  (E045)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(MR)(ARRT) valid thru 05/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Delaney Sabel at https://www.arrt.org/
+    Record it: python record_verification.py E045 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[74 of 100]  Peter Sagmoe  (E022)
+    Status:    not yet verified - last lookup came back not-found
+    Manager:   Kathryn E McIntyre
+    Last check: 2026-10-03 by DEMO DATA - not a real verification - not-found (DEMO)
+    Note:      Demo of a not-found outcome
+    On file:   R.T.(N)(ARRT) valid thru 09/2026  (UNVERIFIED - synthetic placeholder)
+    Look up:   Peter Sagmoe at https://www.arrt.org/
+    Record it: python record_verification.py E022 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[75 of 100]  Ami Salisbury  (E083)
+    Status:    never verified
+    Manager:   Christianna E Davison
+    Last check: none on record
+    On file:   R.T.(R)(MR)(ARRT) valid thru 03/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Ami Salisbury at https://www.arrt.org/
+    Record it: python record_verification.py E083 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[76 of 100]  Absak-Cer-Chin Sang  (E037)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(N)(ARRT) valid thru 08/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Absak-Cer-Chin Sang at https://www.arrt.org/
+    Record it: python record_verification.py E037 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[77 of 100]  Kelly Schanz  (E039)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(MR)(ARRT) valid thru 12/2026  (UNVERIFIED - synthetic placeholder)
+    Look up:   Kelly Schanz at https://www.arrt.org/
+    Record it: python record_verification.py E039 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[78 of 100]  Sierra Schut  (E097)
+    Status:    never verified
+    Manager:   Tonya Blomeling
+    Last check: none on record
+    On file:   R.T.(R)(M)(ARRT) valid thru 03/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Sierra Schut at https://www.arrt.org/
+    Record it: python record_verification.py E097 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[79 of 100]  Noelle Smith  (E071)
+    Status:    never verified
+    Manager:   Kimberly K Gjeltema
+    Last check: none on record
+    On file:   R.T.(S)(ARRT) valid thru 05/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Noelle Smith at https://www.arrt.org/
+    Record it: python record_verification.py E071 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[80 of 100]  Tamara Smith  (E036)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(CT)(ARRT) valid thru 03/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Tamara Smith at https://www.arrt.org/
+    Record it: python record_verification.py E036 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[81 of 100]  Tyler Smith  (E099)
+    Status:    never verified
+    Manager:   Tonya Blomeling
+    Last check: none on record
+    On file:   R.T.(R)(MR)(ARRT) valid thru 01/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Tyler Smith at https://www.arrt.org/
+    Record it: python record_verification.py E099 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[82 of 100]  Erin Snider  (E004)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(S)(ARRT) valid thru 07/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Erin Snider at https://www.arrt.org/
+    Record it: python record_verification.py E004 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[83 of 100]  Angela Spears  (E021)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(N)(ARRT) valid thru 05/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Angela Spears at https://www.arrt.org/
+    Record it: python record_verification.py E021 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[84 of 100]  Jennifer Squires  (E005)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(ARRT) valid thru 10/2026  (UNVERIFIED - synthetic placeholder)
+    Look up:   Jennifer Squires at https://www.arrt.org/
+    Record it: python record_verification.py E005 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[85 of 100]  Janet Stahl  (E019)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(M)(ARRT) valid thru 01/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Janet Stahl at https://www.arrt.org/
+    Record it: python record_verification.py E019 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[86 of 100]  Cheyenne Stiles  (E041)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(ARRT) valid thru 07/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Cheyenne Stiles at https://www.arrt.org/
+    Record it: python record_verification.py E041 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[87 of 100]  Michael Swerer-Shroll  (E003)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(S)(ARRT) valid thru 01/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Michael Swerer-Shroll at https://www.arrt.org/
+    Record it: python record_verification.py E003 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[88 of 100]  Hana VanOsdol  (E053)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(MR)(ARRT) valid thru 09/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Hana VanOsdol at https://www.arrt.org/
+    Record it: python record_verification.py E053 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[89 of 100]  Cameron Vander Stel  (E018)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(MR)(ARRT) valid thru 01/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Cameron Vander Stel at https://www.arrt.org/
+    Record it: python record_verification.py E018 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[90 of 100]  Stephanie Vaughn  (E080)
+    Status:    never verified
+    Manager:   Christianna E Davison
+    Last check: none on record
+    On file:   R.T.(S)(ARRT) valid thru 03/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Stephanie Vaughn at https://www.arrt.org/
+    Record it: python record_verification.py E080 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[91 of 100]  Wendi Wahl  (E032)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(MR)(ARRT) valid thru 06/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Wendi Wahl at https://www.arrt.org/
+    Record it: python record_verification.py E032 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[92 of 100]  Courtney Waterloo  (E020)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(T)(ARRT) valid thru 10/2026  (UNVERIFIED - synthetic placeholder)
+    Look up:   Courtney Waterloo at https://www.arrt.org/
+    Record it: python record_verification.py E020 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[93 of 100]  Jonathan Wells  (E058)
+    Status:    never verified
+    Manager:   Kimberly K Gjeltema
+    Last check: none on record
+    On file:   R.T.(S)(ARRT) valid thru 08/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Jonathan Wells at https://www.arrt.org/
+    Record it: python record_verification.py E058 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[94 of 100]  Kelsey Westworth  (E033)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(MR)(ARRT) valid thru 06/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Kelsey Westworth at https://www.arrt.org/
+    Record it: python record_verification.py E033 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[95 of 100]  John Wiese  (E024)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(ARRT) valid thru 03/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   John Wiese at https://www.arrt.org/
+    Record it: python record_verification.py E024 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[96 of 100]  Kenneth Williams  (E068)
+    Status:    never verified
+    Manager:   Kimberly K Gjeltema
+    Last check: none on record
+    On file:   R.T.(N)(ARRT) valid thru 04/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Kenneth Williams at https://www.arrt.org/
+    Record it: python record_verification.py E068 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[97 of 100]  Carrie Wilson  (E059)
+    Status:    never verified
+    Manager:   Kimberly K Gjeltema
+    Last check: none on record
+    On file:   R.T.(T)(ARRT) valid thru 02/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Carrie Wilson at https://www.arrt.org/
+    Record it: python record_verification.py E059 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[98 of 100]  Lynett Wilson  (E038)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(MR)(ARRT) valid thru 02/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Lynett Wilson at https://www.arrt.org/
+    Record it: python record_verification.py E038 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[99 of 100]  Meghan Wolf  (E006)
+    Status:    never verified
+    Manager:   Kathryn E McIntyre
+    Last check: none on record
+    On file:   R.T.(R)(M)(ARRT) valid thru 11/2026  (UNVERIFIED - synthetic placeholder)
+    Look up:   Meghan Wolf at https://www.arrt.org/
+    Record it: python record_verification.py E006 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+[100 of 100]  Joshua Worden  (E089)
+    Status:    never verified
+    Manager:   Bryan A Hemenway
+    Last check: none on record
+    On file:   R.T.(N)(ARRT) valid thru 05/2027  (UNVERIFIED - synthetic placeholder)
+    Look up:   Joshua Worden at https://www.arrt.org/
+    Record it: python record_verification.py E089 --valid-thru MM/YYYY --credentials "R.T.(R)(ARRT)" --by "Your Name"
+
+------------------------------------------------------------------------
+No date becomes 'verified' until a named person records it.
+Contains real employee names - keep local, do not share or commit.

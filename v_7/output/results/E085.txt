@@ -1,0 +1,20 @@
+NPI IDENTITY CONFIRMATION
+============================================================
+Employee:   David Barrett (E085)
+On file:    Mattawan, MI  R.T.(N)(ARRT)
+Confidence: WEAK  -  Name match only; verify location and taxonomy by hand.
+
+Source: NPPES NPI Registry (public API, no key).
+Note:   An NPI confirms identity, NOT that the credential is current.
+
+Candidate NPI records (2):
+------------------------------------------------------------
+  NPI 1437621620  DAVID BARRETT
+    Social Worker, Clinical
+    LIVONIA, MI   status=A
+
+  NPI 1982608634  DAVID BARRETT
+    Ophthalmology
+    GRAND RAPIDS, MI   status=A
+
+* = taxonomy looks radiology/imaging related

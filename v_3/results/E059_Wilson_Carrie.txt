@@ -1,0 +1,37 @@
+OIG LEIE EXCLUSION LOOKUP
+============================================================
+Name:        Carrie Wilson
+Employee ID: E059
+Manager:     Gjeltema, Kimberly K
+Searched on: 10/03/2026
+Source:      OIG LEIE downloadable database
+Name forms searched: WILSON
+
+RESULT: 2 POSSIBLE NAME MATCH(ES) - REVIEW REQUIRED
+
+A name match is NOT proof of exclusion. The downloadable database
+contains no SSNs, so identity cannot be confirmed from it.
+Verify at https://exclusions.oig.hhs.gov/ before taking any action.
+
+--- Record 1 of 2 ---
+  Name on file:  WILSON, CARRIE MORGAN
+  Location:      DEMOPOLIS, AL
+  Specialty:     NURSE/NURSES AIDE
+  General:       IND- LIC HC SERV PRO
+  NPI on file:   0000000000
+  Excluded:      10/20/2022
+  Reinstated:    00000000
+  Basis:         1128b4 - License revocation, suspension, or surrender
+
+--- Record 2 of 2 ---
+  Name on file:  WILSON, CARRIE LYNN
+  Location:      CLEARFIELD, UT
+  Specialty:     NURSE/NURSES AIDE
+  General:       IND- LIC HC SERV PRO
+  NPI on file:   0000000000
+  Excluded:      03/20/2025
+  Reinstated:    00000000
+  Basis:         1128b4 - License revocation, suspension, or surrender
+
+------------------------------------------------------------
+Contains real employee data. Keep local; do not share or commit.

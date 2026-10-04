@@ -1,0 +1,12 @@
+INDIANA MEDICAID SANCTIONS - NOT YET IMPORTED
+============================================================
+Generated: 2026-10-03
+
+No Indiana sanctions file is present. To connect this source:
+  1. Open https://www.in.gov/medicaid/providers/provider-references/termination-for-cause-and-provider-sanctions/
+  2. Download the current sanctions / termination list
+  3. Save it here as in_sanctions.csv or in_sanctions.xlsx
+  4. Run:  python screen_indiana.py
+
+To preview the flow with fake data:
+     python screen_indiana.py --make-sample

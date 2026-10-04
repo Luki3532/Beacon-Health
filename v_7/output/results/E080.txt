@@ -1,0 +1,16 @@
+NPI IDENTITY CONFIRMATION
+============================================================
+Employee:   Stephanie Vaughn (E080)
+On file:    Schoolcraft, MI  R.T.(S)(ARRT)
+Confidence: WEAK  -  Name match only; verify location and taxonomy by hand.
+
+Source: NPPES NPI Registry (public API, no key).
+Note:   An NPI confirms identity, NOT that the credential is current.
+
+Candidate NPI records (1):
+------------------------------------------------------------
+  NPI 1992207658  STEPHANIE VAUGHN
+    Occupational Therapist
+    SAINT IGNACE, MI   status=A
+
+* = taxonomy looks radiology/imaging related

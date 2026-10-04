@@ -1,0 +1,50 @@
+EXCLUSION / SANCTION LOOKUP
+================================================================
+Name:        Carrie Wilson
+Employee ID: E059
+Manager:     Gjeltema, Kimberly K
+Searched on: 10/03/2026
+Name forms searched: WILSON
+
+OVERALL: REVIEW REQUIRED  (federal: 2, state: 0)
+
+----------------------------------------------------------------
+SOURCE 1 OF 2: OIG LEIE (federal exclusion list)
+----------------------------------------------------------------
+RESULT: 2 POSSIBLE NAME MATCH(ES) - REVIEW REQUIRED
+
+A name match is NOT proof of exclusion. The downloadable database
+contains no SSNs, so identity cannot be confirmed from it.
+Verify at https://exclusions.oig.hhs.gov/ before taking any action.
+
+--- Record 1 of 2 ---
+  Name on file:  WILSON, CARRIE MORGAN
+  Location:      DEMOPOLIS, AL
+  Specialty:     NURSE/NURSES AIDE
+  General:       IND- LIC HC SERV PRO
+  NPI on file:   (none)
+  Excluded:      10/20/2022
+  Reinstated:    (none)
+  Basis:         1128b4 - License revocation, suspension, or surrender
+
+--- Record 2 of 2 ---
+  Name on file:  WILSON, CARRIE LYNN
+  Location:      CLEARFIELD, UT
+  Specialty:     NURSE/NURSES AIDE
+  General:       IND- LIC HC SERV PRO
+  NPI on file:   (none)
+  Excluded:      03/20/2025
+  Reinstated:    (none)
+  Basis:         1128b4 - License revocation, suspension, or surrender
+
+
+----------------------------------------------------------------
+SOURCE 2 OF 2: Michigan Medicaid Sanctioned Provider List (MDHHS)
+----------------------------------------------------------------
+RESULT: NO MATCH
+
+This name does not appear on the Michigan sanctioned provider list.
+
+----------------------------------------------------------------
+Neither public file contains SSNs. A name match alone never confirms
+identity. Contains real employee data - keep local, do not share or commit.

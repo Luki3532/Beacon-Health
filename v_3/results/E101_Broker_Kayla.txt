@@ -1,0 +1,14 @@
+OIG LEIE EXCLUSION LOOKUP
+============================================================
+Name:        Kayla Broker
+Employee ID: E101
+Manager:     Hemenway, Bryan A
+Searched on: 10/03/2026
+Source:      OIG LEIE downloadable database
+Name forms searched: BROKER
+
+RESULT: NO MATCH
+
+This name does not appear in the federal exclusion list.
+------------------------------------------------------------
+Contains real employee data. Keep local; do not share or commit.

@@ -1,0 +1,20 @@
+NPI IDENTITY CONFIRMATION
+============================================================
+Employee:   Suzanne Evans (E078)
+On file:    Otsego, MI  R.T.(R)(ARRT)
+Confidence: WEAK  -  Name match only; verify location and taxonomy by hand.
+
+Source: NPPES NPI Registry (public API, no key).
+Note:   An NPI confirms identity, NOT that the credential is current.
+
+Candidate NPI records (2):
+------------------------------------------------------------
+  NPI 1841341088  SUSAN EVANS
+    Social Worker
+    BRIGHTON, MI   status=A
+
+  NPI 1174099352  SUSAN EVANS
+    Occupational Therapist
+    WHITE LAKE, MI   status=A
+
+* = taxonomy looks radiology/imaging related

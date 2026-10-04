@@ -1,0 +1,24 @@
+NPI IDENTITY CONFIRMATION
+============================================================
+Employee:   Carrie Wilson (E059)
+On file:    Vicksburg, MI  R.T.(T)(ARRT)
+Confidence: WEAK  -  Name match only; verify location and taxonomy by hand.
+
+Source: NPPES NPI Registry (public API, no key).
+Note:   An NPI confirms identity, NOT that the credential is current.
+
+Candidate NPI records (3):
+------------------------------------------------------------
+  NPI 1306310313  CAREY GROENDAL
+    Advanced Practice Midwife
+    HASTINGS, MI   status=A
+
+  NPI 1710432836  CARRIE WILSON
+    Pharmacist
+    SAINT CHARLES, MI   status=A
+
+  NPI 1124521869  KARRY WILSON
+    Occupational Therapist
+    OWOSSO, MI   status=A
+
+* = taxonomy looks radiology/imaging related

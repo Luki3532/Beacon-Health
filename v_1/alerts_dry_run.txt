@@ -1,0 +1,53 @@
+DRY RUN - SYNTHETIC TEST DATA - NO EMAIL WAS SENT
+As-of date: 10/03/2026    Window: 30 days
+
+======================================================================
+To: tonya.blomeling@example.com
+Subject: ARRT credential alert: 1 to review
+
+Hello Tonya Blomeling,
+
+These credentials expire within 30 days:
+  - Madison Brink (E091)  R.T.(S)(ARRT)  valid thru 10/31/2026  (28 days left)
+
+Please confirm each renewal with the technologist.
+
+======================================================================
+To: kimberly.gjeltema@example.com
+Subject: ARRT credential alert: 2 to review
+
+Hello Kimberly K Gjeltema,
+
+These credentials expire within 30 days:
+  - Emily Bigda (E064)  R.T.(N)(ARRT)  valid thru 10/31/2026  (28 days left)
+
+These credentials have already lapsed:
+  - Rachel Dougherty (E067)  R.T.(N)(ARRT)  valid thru 09/30/2026  (lapsed 3 days ago)
+
+Please confirm each renewal with the technologist.
+
+======================================================================
+NOT SENT - no email on file for Hemenway, Bryan A
+  would have listed 1 expiring, 0 lapsed
+  - Chris Hilton (E087)  R.T.(R)(CT)(ARRT)  valid thru 10/31/2026
+
+======================================================================
+To: kathryn.mcintyre@example.com
+Subject: ARRT credential alert: 5 to review
+
+Hello Kathryn E McIntyre,
+
+These credentials expire within 30 days:
+  - Adam Brege (E001)  R.T.(R)(ARRT)  valid thru 10/31/2026  (28 days left)
+  - Glenn Eikelboom (E002)  R.T.(R)(CT)(ARRT)  valid thru 10/31/2026  (28 days left)
+  - Jennifer Squires (E005)  R.T.(R)(ARRT)  valid thru 10/31/2026  (28 days left)
+  - Courtney Waterloo (E020)  R.T.(T)(ARRT)  valid thru 10/31/2026  (28 days left)
+
+These credentials have already lapsed:
+  - Peter Sagmoe (E022)  R.T.(N)(ARRT)  valid thru 09/30/2026  (lapsed 3 days ago)
+
+Please confirm each renewal with the technologist.
+
+======================================================================
+Data checks:
+  - Manager 'Hemenway, Bryan A' has no email on file

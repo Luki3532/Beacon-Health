@@ -1,0 +1,27 @@
+OIG LEIE EXCLUSION LOOKUP
+============================================================
+Name:        Kenneth Williams
+Employee ID: E068
+Manager:     Gjeltema, Kimberly K
+Searched on: 10/03/2026
+Source:      OIG LEIE downloadable database
+Name forms searched: WILLIAMS
+
+RESULT: 1 POSSIBLE NAME MATCH(ES) - REVIEW REQUIRED
+
+A name match is NOT proof of exclusion. The downloadable database
+contains no SSNs, so identity cannot be confirmed from it.
+Verify at https://exclusions.oig.hhs.gov/ before taking any action.
+
+--- Record 1 of 1 ---
+  Name on file:  WILLIAMS, KENNETH
+  Location:      DURHAM, NC
+  Specialty:     PHARMACIST
+  General:       PHARMACY
+  NPI on file:   0000000000
+  Excluded:      01/12/1997
+  Reinstated:    00000000
+  Basis:         1128b14 - Default on health education loan or scholarship obligations
+
+------------------------------------------------------------
+Contains real employee data. Keep local; do not share or commit.

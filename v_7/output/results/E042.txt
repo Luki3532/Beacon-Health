@@ -1,0 +1,16 @@
+NPI IDENTITY CONFIRMATION
+============================================================
+Employee:   Andrew Cybulski (E042)
+On file:    Bloomingdale, MI  R.T.(MR)(ARRT)
+Confidence: WEAK  -  Name match only; verify location and taxonomy by hand.
+
+Source: NPPES NPI Registry (public API, no key).
+Note:   An NPI confirms identity, NOT that the credential is current.
+
+Candidate NPI records (1):
+------------------------------------------------------------
+  NPI 1609508266  ANDREW CYBULSKI
+    Dentist
+    GRAND RAPIDS, MI   status=A
+
+* = taxonomy looks radiology/imaging related

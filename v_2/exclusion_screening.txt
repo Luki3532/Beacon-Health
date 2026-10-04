@@ -1,0 +1,68 @@
+OIG LEIE EXCLUSION SCREENING
+Run date:        10/03/2026
+Roster:          101 people
+LEIE individuals:76,331 distinct names
+
+Matching is on first and last name only. A match is NOT proof of
+exclusion. Confirm every hit at https://exclusions.oig.hhs.gov/
+before taking any action.
+
+======================================================================
+
+RESULT: 5 roster name(s) need human review.
+
+  Carrie Wilson (E059) - manager Gjeltema, Kimberly K
+    2 LEIE record(s) with this first and last name:
+    record 1:
+      middle name on file: MORGAN
+      location:            DEMOPOLIS, AL
+      specialty:           NURSE/NURSES AIDE
+      excluded:            10/20/2022
+      basis:               1128b4 - License revocation, suspension, or surrender
+    record 2:
+      middle name on file: LYNN
+      location:            CLEARFIELD, UT
+      specialty:           NURSE/NURSES AIDE
+      excluded:            03/20/2025
+      basis:               1128b4 - License revocation, suspension, or surrender
+    ACTION: confirm at https://exclusions.oig.hhs.gov/ before acting.
+
+  Kenneth Williams (E068) - manager Gjeltema, Kimberly K
+    1 LEIE record(s) with this first and last name:
+    record 1:
+      middle name on file: (none)
+      location:            DURHAM, NC
+      specialty:           PHARMACIST
+      excluded:            01/12/1997
+      basis:               1128b14 - Default on health education loan or scholarship obligations
+    ACTION: confirm at https://exclusions.oig.hhs.gov/ before acting.
+
+  Heather Ogden (E077) - manager Davison, Christianna E
+    1 LEIE record(s) with this first and last name:
+    record 1:
+      middle name on file: KAY
+      location:            KINGSTON, TN
+      specialty:           NURSE/NURSES AIDE
+      excluded:            02/20/2013
+      basis:               1128b4 - License revocation, suspension, or surrender
+    ACTION: confirm at https://exclusions.oig.hhs.gov/ before acting.
+
+  David Barrett (E085) - manager Hemenway, Bryan A
+    1 LEIE record(s) with this first and last name:
+    record 1:
+      middle name on file: BENJAMIN
+      location:            ATHENS, TX
+      specialty:           GYN/OBS
+      excluded:            09/20/2006
+      basis:               1128b4 - License revocation, suspension, or surrender
+    ACTION: confirm at https://exclusions.oig.hhs.gov/ before acting.
+
+  Tyler Smith (E099) - manager Blomeling, Tonya
+    1 LEIE record(s) with this first and last name:
+    record 1:
+      middle name on file: JAMES
+      location:            JOINT BASE MDL, NJ
+      specialty:           PERSONAL CARE PROVID
+      excluded:            05/20/2026
+      basis:               1128a2 - Conviction relating to patient abuse or neglect
+    ACTION: confirm at https://exclusions.oig.hhs.gov/ before acting.

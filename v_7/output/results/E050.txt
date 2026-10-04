@@ -1,0 +1,10 @@
+NPI IDENTITY CONFIRMATION
+============================================================
+Employee:   Scott McDonald (E050)
+On file:    Paw Paw, MI  R.T.(R)(MR)(ARRT)
+Confidence: NONE  -  No NPI record found for this name/state.
+
+Source: NPPES NPI Registry (public API, no key).
+Note:   An NPI confirms identity, NOT that the credential is current.
+
+No NPI records returned for this name in this state.

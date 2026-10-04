@@ -1,0 +1,16 @@
+NPI IDENTITY CONFIRMATION
+============================================================
+Employee:   Noelle Smith (E071)
+On file:    Battle Creek, MI  R.T.(S)(ARRT)
+Confidence: WEAK  -  Name match only; verify location and taxonomy by hand.
+
+Source: NPPES NPI Registry (public API, no key).
+Note:   An NPI confirms identity, NOT that the credential is current.
+
+Candidate NPI records (1):
+------------------------------------------------------------
+  NPI 1205548468  NOELLE SMITH
+    Doula
+    CANTON, MI   status=A
+
+* = taxonomy looks radiology/imaging related

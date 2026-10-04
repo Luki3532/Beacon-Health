@@ -1,0 +1,14 @@
+OIG LEIE EXCLUSION LOOKUP
+============================================================
+Name:        Molly Gorniewicz
+Employee ID: E094
+Manager:     Blomeling, Tonya
+Searched on: 10/03/2026
+Source:      OIG LEIE downloadable database
+Name forms searched: GORNIEWICZ
+
+RESULT: NO MATCH
+
+This name does not appear in the federal exclusion list.
+------------------------------------------------------------
+Contains real employee data. Keep local; do not share or commit.

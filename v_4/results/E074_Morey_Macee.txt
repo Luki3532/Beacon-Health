@@ -1,0 +1,27 @@
+EXCLUSION / SANCTION LOOKUP
+================================================================
+Name:        Macee Morey
+Employee ID: E074
+Manager:     Davison, Christianna E
+Searched on: 10/03/2026
+Name forms searched: MOREY
+
+OVERALL: CLEAR  (federal: 0, state: 0)
+
+----------------------------------------------------------------
+SOURCE 1 OF 2: OIG LEIE (federal exclusion list)
+----------------------------------------------------------------
+RESULT: NO MATCH
+
+This name does not appear in the federal exclusion list.
+
+----------------------------------------------------------------
+SOURCE 2 OF 2: Michigan Medicaid Sanctioned Provider List (MDHHS)
+----------------------------------------------------------------
+RESULT: NO MATCH
+
+This name does not appear on the Michigan sanctioned provider list.
+
+----------------------------------------------------------------
+Neither public file contains SSNs. A name match alone never confirms
+identity. Contains real employee data - keep local, do not share or commit.

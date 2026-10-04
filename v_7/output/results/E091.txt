@@ -1,0 +1,16 @@
+NPI IDENTITY CONFIRMATION
+============================================================
+Employee:   Madison Brink (E091)
+On file:    Otsego, MI  R.T.(S)(ARRT)
+Confidence: WEAK  -  Name match only; verify location and taxonomy by hand.
+
+Source: NPPES NPI Registry (public API, no key).
+Note:   An NPI confirms identity, NOT that the credential is current.
+
+Candidate NPI records (1):
+------------------------------------------------------------
+  NPI 1912683541  MADISON TIESENGA
+    Physician Assistant
+    GRAND RAPIDS, MI   status=A
+
+* = taxonomy looks radiology/imaging related

@@ -1,0 +1,16 @@
+NPI IDENTITY CONFIRMATION
+============================================================
+Employee:   Jennifer Squires (E005)
+On file:    Otsego, MI  R.T.(R)(ARRT)
+Confidence: WEAK  -  Name match only; verify location and taxonomy by hand.
+
+Source: NPPES NPI Registry (public API, no key).
+Note:   An NPI confirms identity, NOT that the credential is current.
+
+Candidate NPI records (1):
+------------------------------------------------------------
+  NPI 1972051712  JENNIFER SQUIRES
+    Physician Assistant
+    KALAMAZOO, MI   status=A
+
+* = taxonomy looks radiology/imaging related

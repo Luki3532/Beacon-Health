@@ -1,0 +1,40 @@
+EXCLUSION / SANCTION LOOKUP
+================================================================
+Name:        Heather Ogden
+Employee ID: E077
+Manager:     Davison, Christianna E
+Searched on: 10/03/2026
+Name forms searched: OGDEN
+
+OVERALL: REVIEW REQUIRED  (federal: 1, state: 0)
+
+----------------------------------------------------------------
+SOURCE 1 OF 2: OIG LEIE (federal exclusion list)
+----------------------------------------------------------------
+RESULT: 1 POSSIBLE NAME MATCH(ES) - REVIEW REQUIRED
+
+A name match is NOT proof of exclusion. The downloadable database
+contains no SSNs, so identity cannot be confirmed from it.
+Verify at https://exclusions.oig.hhs.gov/ before taking any action.
+
+--- Record 1 of 1 ---
+  Name on file:  OGDEN, HEATHER KAY
+  Location:      KINGSTON, TN
+  Specialty:     NURSE/NURSES AIDE
+  General:       IND- LIC HC SERV PRO
+  NPI on file:   (none)
+  Excluded:      02/20/2013
+  Reinstated:    (none)
+  Basis:         1128b4 - License revocation, suspension, or surrender
+
+
+----------------------------------------------------------------
+SOURCE 2 OF 2: Michigan Medicaid Sanctioned Provider List (MDHHS)
+----------------------------------------------------------------
+RESULT: NO MATCH
+
+This name does not appear on the Michigan sanctioned provider list.
+
+----------------------------------------------------------------
+Neither public file contains SSNs. A name match alone never confirms
+identity. Contains real employee data - keep local, do not share or commit.

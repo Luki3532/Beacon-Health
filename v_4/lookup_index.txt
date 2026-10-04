@@ -1,0 +1,109 @@
+EXCLUSION / SANCTION LOOKUP INDEX
+Run date:  10/03/2026
+People:    101
+Flagged:   5
+Sources:   OIG LEIE (federal) + MDHHS Sanctioned Provider List (Michigan)
+Elapsed:   0.1s
+================================================================
+
+clear   E001    Adam Brege                    fed:0  mi:0  E001_Brege_Adam.txt
+clear   E002    Glenn Eikelboom               fed:0  mi:0  E002_Eikelboom_Glenn.txt
+clear   E003    Michael Swerer-Shroll         fed:0  mi:0  E003_Swerer-Shroll_Michael.txt
+clear   E004    Erin Snider                   fed:0  mi:0  E004_Snider_Erin.txt
+clear   E005    Jennifer Squires              fed:0  mi:0  E005_Squires_Jennifer.txt
+clear   E006    Meghan Wolf                   fed:0  mi:0  E006_Wolf_Meghan.txt
+clear   E007    Chelsea Bockstanz             fed:0  mi:0  E007_Bockstanz_Chelsea.txt
+clear   E008    David Bautista                fed:0  mi:0  E008_Bautista_David.txt
+clear   E009    Samantha Rhoten               fed:0  mi:0  E009_Rhoten_Samantha.txt
+clear   E010    Adam Brege                    fed:0  mi:0  E010_Brege_Adam.txt
+clear   E011    Sharon Hamilton               fed:0  mi:0  E011_Hamilton_Sharon.txt
+clear   E012    Amie Cook                     fed:0  mi:0  E012_Cook_Amie.txt
+clear   E013    Erica Flickinger-Glieden      fed:0  mi:0  E013_Flickinger-Glieden_Erica.txt
+clear   E014    Jamie Bryant                  fed:0  mi:0  E014_Bryant_Jamie.txt
+clear   E015    Jodi Inman                    fed:0  mi:0  E015_Inman_Jodi.txt
+clear   E016    Christine Dodd                fed:0  mi:0  E016_Dodd_Christine.txt
+clear   E017    James Mize                    fed:0  mi:0  E017_Mize_James.txt
+clear   E018    Cameron Vander Stel           fed:0  mi:0  E018_Vander_Stel_Cameron.txt
+clear   E019    Janet Stahl                   fed:0  mi:0  E019_Stahl_Janet.txt
+clear   E020    Courtney Waterloo             fed:0  mi:0  E020_Waterloo_Courtney.txt
+clear   E021    Angela Spears                 fed:0  mi:0  E021_Spears_Angela.txt
+clear   E022    Peter Sagmoe                  fed:0  mi:0  E022_Sagmoe_Peter.txt
+clear   E023    Lexington Mardeusz            fed:0  mi:0  E023_Mardeusz_Lexington.txt
+clear   E024    John Wiese                    fed:0  mi:0  E024_Wiese_John.txt
+clear   E025    Ava Anglin                    fed:0  mi:0  E025_Anglin_Ava.txt
+clear   E026    Haylee Orns                   fed:0  mi:0  E026_Orns_Haylee.txt
+clear   E027    Jaynie Mueller                fed:0  mi:0  E027_Mueller_Jaynie.txt
+clear   E028    Jeramy Robertson              fed:0  mi:0  E028_Robertson_Jeramy.txt
+clear   E029    Paul Dziepak                  fed:0  mi:0  E029_Dziepak_Paul.txt
+clear   E030    Benjamin Harper               fed:0  mi:0  E030_Harper_Benjamin.txt
+clear   E031    Zachary Little                fed:0  mi:0  E031_Little_Zachary.txt
+clear   E032    Wendi Wahl                    fed:0  mi:0  E032_Wahl_Wendi.txt
+clear   E033    Kelsey Westworth              fed:0  mi:0  E033_Westworth_Kelsey.txt
+clear   E034    Jessica Feltner               fed:0  mi:0  E034_Feltner_Jessica.txt
+clear   E035    Samantha Cahoon               fed:0  mi:0  E035_Cahoon_Samantha.txt
+clear   E036    Tamara Smith                  fed:0  mi:0  E036_Smith_Tamara.txt
+clear   E037    Absak-Cer-Chin Sang           fed:0  mi:0  E037_Sang_Absak-Cer-Chin.txt
+clear   E038    Lynett Wilson                 fed:0  mi:0  E038_Wilson_Lynett.txt
+clear   E039    Kelly Schanz                  fed:0  mi:0  E039_Schanz_Kelly.txt
+clear   E040    Vince Bennett                 fed:0  mi:0  E040_Bennett_Vince.txt
+clear   E041    Cheyenne Stiles               fed:0  mi:0  E041_Stiles_Cheyenne.txt
+clear   E042    Andrew Cybulski               fed:0  mi:0  E042_Cybulski_Andrew.txt
+clear   E043    Shannon Kotrba                fed:0  mi:0  E043_Kotrba_Shannon.txt
+clear   E044    Kristen Klinger               fed:0  mi:0  E044_Klinger_Kristen.txt
+clear   E045    Delaney Sabel                 fed:0  mi:0  E045_Sabel_Delaney.txt
+clear   E046    Adam Doorlag                  fed:0  mi:0  E046_Doorlag_Adam.txt
+clear   E047    Mikayla Bryant                fed:0  mi:0  E047_Bryant_Mikayla.txt
+clear   E048    Julia Harris                  fed:0  mi:0  E048_Harris_Julia.txt
+clear   E049    Jennifer Lipps                fed:0  mi:0  E049_Lipps_Jennifer.txt
+clear   E050    Scott McDonald                fed:0  mi:0  E050_McDonald_Scott.txt
+clear   E051    Matthew Patton                fed:0  mi:0  E051_Patton_Matthew.txt
+clear   E052    Bailey Paddock                fed:0  mi:0  E052_Paddock_Bailey.txt
+clear   E053    Hana VanOsdol                 fed:0  mi:0  E053_VanOsdol_Hana.txt
+clear   E054    Kayla Hayward                 fed:0  mi:0  E054_Hayward_Kayla.txt
+clear   E055    Kimberlee Rolon               fed:0  mi:0  E055_Rolon_Kimberlee.txt
+clear   E056    Cheri Hulce                   fed:0  mi:0  E056_Hulce_Cheri.txt
+clear   E057    Darcia Artz                   fed:0  mi:0  E057_Artz_Darcia.txt
+clear   E058    Jonathan Wells                fed:0  mi:0  E058_Wells_Jonathan.txt
+REVIEW  E059    Carrie Wilson                 fed:2  mi:0  E059_Wilson_Carrie.txt
+clear   E060    Josilyn Brown                 fed:0  mi:0  E060_Brown_Josilyn.txt
+clear   E061    Jennifer Barts                fed:0  mi:0  E061_Barts_Jennifer.txt
+clear   E062    Christopher Gallagher         fed:0  mi:0  E062_Gallagher_Christopher.txt
+clear   E063    Angela Janssen                fed:0  mi:0  E063_Janssen_Angela.txt
+clear   E064    Emily Bigda                   fed:0  mi:0  E064_Bigda_Emily.txt
+clear   E065    Victor Agnone                 fed:0  mi:0  E065_Agnone_Victor.txt
+clear   E066    Alicia Kalas                  fed:0  mi:0  E066_Kalas_Alicia.txt
+clear   E067    Rachel Dougherty              fed:0  mi:0  E067_Dougherty_Rachel.txt
+REVIEW  E068    Kenneth Williams              fed:1  mi:0  E068_Williams_Kenneth.txt
+clear   E069    Kristie Budd                  fed:0  mi:0  E069_Budd_Kristie.txt
+clear   E070    Poppaea Ramey                 fed:0  mi:0  E070_Ramey_Poppaea.txt
+clear   E071    Noelle Smith                  fed:0  mi:0  E071_Smith_Noelle.txt
+clear   E072    Paul Lambrix                  fed:0  mi:0  E072_Lambrix_Paul.txt
+clear   E073    Gregory Ramey                 fed:0  mi:0  E073_Ramey_Gregory.txt
+clear   E074    Macee Morey                   fed:0  mi:0  E074_Morey_Macee.txt
+clear   E075    Denise Dennis                 fed:0  mi:0  E075_Dennis_Denise.txt
+clear   E076    Dominique Johnston            fed:0  mi:0  E076_Johnston_Dominique.txt
+REVIEW  E077    Heather Ogden                 fed:1  mi:0  E077_Ogden_Heather.txt
+clear   E078    Suzanne Evans                 fed:0  mi:0  E078_Evans_Suzanne.txt
+clear   E079    Mary Beth Kelly               fed:0  mi:0  E079_Kelly_Mary_Beth.txt
+clear   E080    Stephanie Vaughn              fed:0  mi:0  E080_Vaughn_Stephanie.txt
+clear   E081    Krystal Fischer               fed:0  mi:0  E081_Fischer_Krystal.txt
+clear   E082    Rebecca Gawkowski             fed:0  mi:0  E082_Gawkowski_Rebecca.txt
+clear   E083    Ami Salisbury                 fed:0  mi:0  E083_Salisbury_Ami.txt
+clear   E084    Erin Murray                   fed:0  mi:0  E084_Murray_Erin.txt
+REVIEW  E085    David Barrett                 fed:1  mi:0  E085_Barrett_David.txt
+clear   E086    John Gustafson                fed:0  mi:0  E086_Gustafson_John.txt
+clear   E087    Chris Hilton                  fed:0  mi:0  E087_Hilton_Chris.txt
+clear   E088    Christina Busick              fed:0  mi:0  E088_Busick_Christina.txt
+clear   E089    Joshua Worden                 fed:0  mi:0  E089_Worden_Joshua.txt
+clear   E090    Lawrence Masarira             fed:0  mi:0  E090_Masarira_Lawrence.txt
+clear   E091    Madison Brink                 fed:0  mi:0  E091_Brink_Madison.txt
+clear   E092    Natalie Juarez                fed:0  mi:0  E092_Juarez_Natalie.txt
+clear   E093    Darren Covell                 fed:0  mi:0  E093_Covell_Darren.txt
+clear   E094    Molly Gorniewicz              fed:0  mi:0  E094_Gorniewicz_Molly.txt
+clear   E095    Sharon French                 fed:0  mi:0  E095_French_Sharon.txt
+clear   E096    Holly Barner                  fed:0  mi:0  E096_Barner_Holly.txt
+clear   E097    Sierra Schut                  fed:0  mi:0  E097_Schut_Sierra.txt
+clear   E098    Laurie MacRitchie             fed:0  mi:0  E098_MacRitchie_Laurie.txt
+REVIEW  E099    Tyler Smith                   fed:1  mi:0  E099_Smith_Tyler.txt
+clear   E100    Robert Guise                  fed:0  mi:0  E100_Guise_Robert.txt
+clear   E101    Kayla Broker                  fed:0  mi:0  E101_Broker_Kayla.txt

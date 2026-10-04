@@ -1,0 +1,14 @@
+OIG LEIE EXCLUSION LOOKUP
+============================================================
+Name:        Andrew Cybulski
+Employee ID: E042
+Manager:     McIntyre, Kathryn E
+Searched on: 10/03/2026
+Source:      OIG LEIE downloadable database
+Name forms searched: CYBULSKI
+
+RESULT: NO MATCH
+
+This name does not appear in the federal exclusion list.
+------------------------------------------------------------
+Contains real employee data. Keep local; do not share or commit.

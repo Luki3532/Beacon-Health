@@ -1,0 +1,16 @@
+NPI IDENTITY CONFIRMATION
+============================================================
+Employee:   Benjamin Harper (E030)
+On file:    Vicksburg, MI  R.T.(R)(M)(ARRT)
+Confidence: WEAK  -  Name match only; verify location and taxonomy by hand.
+
+Source: NPPES NPI Registry (public API, no key).
+Note:   An NPI confirms identity, NOT that the credential is current.
+
+Candidate NPI records (1):
+------------------------------------------------------------
+  NPI 1609073287  BENJAMIN HARPER
+    Orthopaedic Surgery
+    BRIGHTON, MI   status=A
+
+* = taxonomy looks radiology/imaging related
